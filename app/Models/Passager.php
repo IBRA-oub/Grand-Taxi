@@ -14,7 +14,7 @@ class Passager extends Model
        'email',
        'password',
        'picture_passager',
-        'phone'
+       'phone'
     ];
     
 }

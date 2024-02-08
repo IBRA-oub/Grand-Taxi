@@ -39,11 +39,11 @@
                                             class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                                             <i class="mdi mdi-account-outline text-gray-400 text-lg"></i>
                                         </div>
-                                        <input type="text" id="Name" name="Name"
-                                            class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500 @error('name')is-invalid @enderror"
+                                        <input type="text" id="name" name="name"
+                                            class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500 "
                                             placeholder="John">
                                             @error('name')
-                                            <span class="invalid-feedback">{{ $message }}</span>
+                                            <p class="text-red-600">{{ $message }}</p>
                                           @enderror
                                     </div>
                                 </div>
@@ -56,10 +56,10 @@
                                             <i class="mdi mdi-account-outline text-gray-400 text-lg"></i>
                                         </div>
                                         <input type="number" name="phone" id="phone"
-                                            class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500 @error('phone')is-invalid @enderror "
-                                            placeholder="Smith">
+                                            class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500  "
+                                            placeholder="061234567">
                                             @error('phone')
-                                            <span class="invalid-feedback">{{ $message }}</span>
+                                            <p class="text-red-600">{{ $message }}</p>
                                           @enderror
                                     </div>
                                 </div>
@@ -75,9 +75,9 @@
                                             <i class="mdi mdi-email-outline text-gray-400 text-lg"></i>
                                         </div>
                                         <input type="email" name="email" id="email" class=" w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200
-                                            outline-none focus:border-indigo-500 @error('email')is-invalid @enderror" placeholder="johnsmith@example.com">
+                                            outline-none focus:border-indigo-500 " placeholder="johnsmith@example.com">
                                             @error('email')
-                                            <span class="invalid-feedback">{{ $message }}</span>
+                                            <p class="text-red-600">{{ $message }}</p>
                                           @enderror
                                     </div>
                                 </div>
@@ -92,10 +92,10 @@
                                             <i class="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                                         </div>
                                         <input type="password" name="password" id="password"
-                                            class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500 @error('password')is-invalid @enderror"
+                                            class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500 "
                                             placeholder="************">
                                             @error('password')
-                                            <span class="invalid-feedback">{{ $message }}</span>
+                                            <p class="text-red-600">{{ $message }}</p>
                                           @enderror
                                     </div>
                                 </div>
@@ -120,7 +120,7 @@
                                             <label for="logo"
                                                 class="relative cursor-pointer bg-black rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                                                 <span class="">Upload a file</span>
-                                                <input id="logo" name="pictureUser" type="file" class="sr-only">
+                                                <input id="logo" name="picture_passager" type="file" class="sr-only ">
                                             </label>
                                             <p class="pl-1 text-black">or drag and drop</p>
                                         </div>
@@ -130,7 +130,9 @@
                                     </div>
 
                                 </div>
-                                <p class="errorMessage text-red-500 text-sm mt-2"></p>
+                                         @error('picture_passager')
+                                            <p class="text-red-600">{{ $message }}</p>
+                                          @enderror
                             </div>
                             <div class="flex my-4 -mx-3">
                                 <div class="w-full px-3 mb-5">
@@ -144,8 +146,8 @@
                     </form>
 
 
-                    <p class="ml-20 ">Already have an account? <a href="login.php"
-                            class="text-blue-500 hover:text-blue-700 font-semibold">Log In
+                    <p class="ml-20 "><a href="{{route('loginPassager')}}"
+                            class="text-blue-500 hover:text-blue-700 font-semibold">Already have an account?Log In
                         </a></p>
                 </div>
             </div>

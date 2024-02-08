@@ -25,4 +25,7 @@ Route::controller(ChauffeurAuthController::class)->group(function (){
 Route::controller(PassagerAuthController::class)->group(function (){
     Route::get('passagerRegister','passagerRegister')->name('passagerRegister');
     Route::post('passagerRegister','passagerRegisterSave')->name('passagerRegister.save');
+
+    Route::get('login', 'loginPassager')->name('loginPassager');
+    Route::post('login', 'loginPassagerAction')->name('loginPassager.action');
 });
