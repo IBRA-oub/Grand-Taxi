@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ChauffeurAuthController;
+use App\Http\Controllers\PassagerAuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +16,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+Route::controller(ChauffeurAuthController::class)->group(function (){
+    Route::get('chauffeurRegister','chauffeurRegister')->name('chauffeurRegister');
+    Route::get('chauffeurRegister','chauffeurRegisterSave')->name('chauffeurRegister.save');
+});
+
+Route::controller(PassagerAuthController::class)->group(function (){
+    Route::get('passagerRegister','passagerRegister')->name('passagerRegister');
+    Route::post('passagerRegister','passagerRegisterSave')->name('passagerRegister.save');
 });
