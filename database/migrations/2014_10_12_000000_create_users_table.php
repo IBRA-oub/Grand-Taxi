@@ -17,8 +17,15 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('picture');
+            $table->integer('phone');
+            $table->text('description')->nullable();
+            $table->string('matricule')->nullable();
+            $table->enum('status',['disponible','en cour','hors service'])->nullable();
+            $table->string('typeVoiture')->nullable();
+            $table->string('typePayement')->nullable();
+            $table->enum('role',['admin','passager','chauffeur']);
             $table->rememberToken();
             $table->timestamps();
         });

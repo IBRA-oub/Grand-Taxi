@@ -28,7 +28,7 @@
                     </div>
                     <div>
                       
-                        <form action="{{route('loginPassager.action')}}" method="POST">
+                        <form action="{{route('login.action')}}" method="POST">
                             @csrf
                             
                             <div class="w-full px-3 mb-12">
@@ -75,7 +75,7 @@
                            
                           
                         </form>
-                        <p class="ml-20 mt-8"><a href="{{ route('passagerRegister') }}"
+                        <p class="ml-20 mt-8"><a href="{{ route('register') }}"
                                 class="text-blue-500 hover:text-blue-700 font-semibold">Need an account? Create an
                                 account</a></p>
                     </div>

@@ -27,7 +27,7 @@
                         <h1 class="font-bold text-3xl text-gray-900">REGISTER</h1>
                         <p>Enter your information to register</p>
                     </div>
-                    <form action="{{route('passagerRegister.save')}}" method="POST"
+                    <form action="{{route('register.save')}}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
                         <div>
@@ -102,6 +102,21 @@
 
                             </div>
 
+                            <div class="flex -mx-3">
+                                <div class="w-full px-3 mb-12">
+                                    <label for="role" class="text-xs font-semibold px-1">Role</label>
+                                    <div class="flex">
+                                        <select name="role" id="role" class="w-full pl-3 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
+                                            <option value="chauffeur">Chauffeur</option>
+                                            <option value="passager">Passager</option>
+                                        </select>
+                                        @error('role')
+                                            <p class="text-red-600">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+
 
                             <div>
                                 <label class="block text-sm font-medium text-gray-400">
@@ -120,7 +135,7 @@
                                             <label for="logo"
                                                 class="relative cursor-pointer bg-black rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                                                 <span class="">Upload a file</span>
-                                                <input id="logo" name="picture_passager" type="file" class="sr-only ">
+                                                <input id="logo" name="picture" type="file" class="sr-only ">
                                             </label>
                                             <p class="pl-1 text-black">or drag and drop</p>
                                         </div>
@@ -130,7 +145,7 @@
                                     </div>
 
                                 </div>
-                                         @error('picture_passager')
+                                         @error('picture')
                                             <p class="text-red-600">{{ $message }}</p>
                                           @enderror
                             </div>
@@ -146,7 +161,7 @@
                     </form>
 
 
-                    <p class="ml-20 "><a href="{{route('loginPassager')}}"
+                    <p class="ml-20 "><a href="{{route('login')}}"
                             class="text-blue-500 hover:text-blue-700 font-semibold">Already have an account?Log In
                         </a></p>
                 </div>

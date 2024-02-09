@@ -1,8 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ChauffeurAuthController;
-use App\Http\Controllers\PassagerAuthController;
+
+use App\Http\Controllers\AuthController;
+use App\Http\Middleware\CheckRole;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,15 +20,33 @@ use App\Http\Controllers\PassagerAuthController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::controller(ChauffeurAuthController::class)->group(function (){
-    Route::get('chauffeurRegister','chauffeurRegister')->name('chauffeurRegister');
-    Route::get('chauffeurRegister','chauffeurRegisterSave')->name('chauffeurRegister.save');
+
+Route::controller(AuthController::class)->group(function (){
+    Route::get('register','register')->name('register');
+    Route::post('register','registerSave')->name('register.save');
+
+    Route::get('login', 'login')->name('login');
+    Route::post('login', 'loginAction')->name('login.action');
 });
 
-Route::controller(PassagerAuthController::class)->group(function (){
-    Route::get('passagerRegister','passagerRegister')->name('passagerRegister');
-    Route::post('passagerRegister','passagerRegisterSave')->name('passagerRegister.save');
+// =====================chauffeur======================
+Route::middleware(['auth', CheckRole::class . ':chauffeur'])->group(function () {
+    Route::get('dashboardChauffeur', function () {
+        return view('dashboardChauffeur');
+    })->name('dashboardChauffeur');
+});
 
-    Route::get('login', 'loginPassager')->name('loginPassager');
-    Route::post('login', 'loginPassagerAction')->name('loginPassager.action');
+// =========================Passager======================
+Route::middleware(['auth', CheckRole::class . ':passager'])->group(function () {
+    Route::get('dashboardPassager', function () {
+        return view('dashboardPassager');
+    })->name('dashboardPassager');
+});
+
+// =======================Admin===========================
+
+Route::middleware(['auth', CheckRole::class . ':admin'])->group(function () {
+    Route::get('dashboardAdmin', function () {
+        return view('dashboardAdmin');
+    })->name('dashboardAdmin');
 });
