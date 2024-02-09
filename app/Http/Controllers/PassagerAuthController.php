@@ -30,7 +30,10 @@ class PassagerAuthController extends Controller
         $passagers = new passager();
         $passagers->name = $request->input('name');
         $passagers->email = $request->input('email');
-        $passagers->password = $request->input('password');
+        $password = $request->input('password');
+
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $passagers->password = $hashedPassword;
         $passagers->phone = $request->input('phone');
         
         if ($request->hasFile('picture_passager')) {
@@ -52,22 +55,20 @@ class PassagerAuthController extends Controller
 
     
 
-    public function loginPassagerAction(Request $request){
-        
-        $request->validate([
-        'email' => 'required|email',
-        'password' => 'required'
-        ]);
+    public function loginPassagerAction(Request $request) {
+        Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required',
+        ])->validate();
     
-    if(!Auth::attempt($request->only('email','password'),$request->boolean('remember'))){
-        throw ValidationException::withMessages([
-            'email' => trans('auth.failed')
-        ]);
+        if (!Auth::guard('passager')->attempt($request->only('email', 'password'))) {
+            throw ValidationException::withMessages([
+                'email' => trans('auth.failed'),
+            ]);
+        }
+    
+        $request->session()->regenerate();
+    
+        return redirect()->route('dashboard');
     }
-
-    $request->session()->regenerate();
-
-    return redirect()->route('dashboard');
-    
-     }
 }
