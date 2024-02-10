@@ -5,7 +5,7 @@
       <div class="sidebar-brand-icon rotate-n-15">
         <i class="fas fa-laugh-wink"></i>
       </div>
-      <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+      <div class="sidebar-brand-text mx-3">Admin <sup>TM</sup></div>
     </a>
     
     <!-- Divider -->
@@ -19,14 +19,26 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-link" href="">
-        <i class="fas fa-fw fa-tachometer-alt"></i>
-        <span>Product</span></a>
+      <a class="nav-link" href="adminPages/adminChauffeurs">
+        <i class="fas fa-fw fa-light fa-users"></i>
+        <span>Chauffeurs</span></a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="adminPages/adminPassagers">
+        <i class="fas fa-fw fa-light fa-users"></i>
+        <span>Passagers</span></a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="adminPages/adminReservation">
+        <i class="fas fa-fw fa-duotone fa-check-to-slot"></i>
+        <span>Reservation</span></a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-link" href="/profile">
-        <i class="fas fa-fw fa-tachometer-alt"></i>
+      <a class="nav-link" href="adminPages/adminProfile">
+        <i class="fas fa-fw fa-duotone fa-id-card"></i>
         <span>Profile</span></a>
     </li>
     

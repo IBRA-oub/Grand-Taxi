@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -68,7 +69,11 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $adminProfile = User::findOrFail($id);
+        
+        $adminProfile->update($request->all());
+
+        return redirect()->route('adminProfile')->with('success','adminProfile updated successfuly');
     }
 
     /**
@@ -81,4 +86,22 @@ class AdminController extends Controller
     {
         //
     }
+    public function adminProfile(){
+        
+        return view('adminProfile');
+     }
+     
+    public function adminPassagers(){
+        
+        return view('adminPassagers');
+     }
+     public function adminChauffeurs(){
+        
+        return view('adminChauffeurs');
+     }
+     public function adminReservation(){
+        
+        return view('adminReservation');
+     }
+     
 }

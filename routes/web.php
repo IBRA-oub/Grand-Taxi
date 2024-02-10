@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
 use App\Http\Middleware\CheckRole;
 
 
@@ -20,6 +21,7 @@ use App\Http\Middleware\CheckRole;
 Route::get('/', function () {
     return view('welcome');
 });
+
 
 Route::controller(AuthController::class)->group(function (){
     Route::get('register','register')->name('register');
@@ -51,4 +53,15 @@ Route::middleware(['auth', CheckRole::class . ':admin'])->group(function () {
     Route::get('dashboardAdmin', function () {
         return view('dashboardAdmin');
     })->name('dashboardAdmin');
+
+    Route::controller(AdminController::class)->prefix('adminPages')->group(function () {
+        
+        Route::put('edit/{id}', 'update')->name('adminProfile.update');
+    });
+
+    
+    Route::get('adminPages/adminProfile', [App\Http\Controllers\AdminController::class, 'adminProfile'])->name('adminProfile');
+    Route::get('adminPages/adminPassagers', [App\Http\Controllers\AdminController::class, 'adminPassagers'])->name('adminPassagers');
+    Route::get('adminPages/adminChauffeurs', [App\Http\Controllers\AdminController::class, 'adminChauffeurs'])->name('adminChauffeurs');
+    Route::get('adminPages/adminReservation', [App\Http\Controllers\AdminController::class, 'adminReservation'])->name('adminReservation');
 });
