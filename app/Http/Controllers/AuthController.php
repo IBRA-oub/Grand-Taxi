@@ -83,8 +83,11 @@ class AuthController extends Controller
             return redirect()->route('dashboardAdmin');
         }
     
-    
-      
-    
     }
+
+    public function logout(Request $request){
+        Auth::guard('web')->logout();
+        $request->session()->invalidate();
+        return redirect('/');
+     }
 }

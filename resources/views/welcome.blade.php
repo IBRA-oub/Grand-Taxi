@@ -23,21 +23,6 @@
     </head>
     <body class="antialiased">
        
-
-        @if (Route::has('login'))
-        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-            @auth
-                <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
-            @else
-                <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                @endif
-            @endauth
-        </div>
-    @endif  
-
     <nav class="relative px-4  flex justify-between items-center bg-white">
         <a class="text-3xl font-bold leading-none" href="#">
             <svg class="h-10" alt="logo" viewBox="0 0 10240 10240">
@@ -52,25 +37,18 @@
                 </svg>
             </button>
         </div>
-        
+        @if (Route::has('login'))
         <div class="hidden lg:flex lg:items-center lg:ml-auto lg:mr-5 ">
-            <div class="dropdown inline-block relative lg:mr-7 ">
-                <button class="bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold py-2 px-6 rounded-xl transition duration-200">Sign In</button>
-                <ul class="dropdown-menu absolute hidden text-gray-900 pt-1">
-                    <li><a class="rounded-t bg-gray-50 hover:bg-gray-100 py-2 px-4 block whitespace-no-wrap text-sm" href="#">chauffeur</a></li>
-                    <li><a class="bg-gray-50 hover:bg-gray-100 py-2 px-4 block whitespace-no-wrap text-sm" href="#">admin</a></li>
-                    <li><a class="rounded-b bg-gray-50 hover:bg-gray-100 py-2 px-4 block whitespace-no-wrap text-sm" href="#">passager</a></li>
-                </ul>
-            </div>
-            
-            <div class="dropdown inline-block relative ">
-                <button class="bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold py-2 px-6 rounded-xl transition duration-200">Sign up</button>
-                <ul class="dropdown-menu absolute hidden text-gray-900 pt-1">
-                    <li><a class="rounded-t bg-gray-50 hover:bg-gray-100 py-2 px-4 block whitespace-no-wrap  text-sm" href="#">chauffeur</a></li>
-                    <li><a class="bg-gray-50 hover:bg-gray-100 py-2 px-4 block whitespace-no-wrap  text-sm" href="#">passager</a></li>
-                </ul>
-            </div>
+            @auth
+            <a href="{{ url('/') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+            @else
+            <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200" href="{{ route('login') }}">Sign In</a>
+            @if (Route::has('register'))
+            <a class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200" href="{{ route('register') }}">Sign up</a>
+            @endif
+            @endauth
         </div>
+        @endif  
         
     </nav>
 
@@ -108,24 +86,5 @@
                   </div>
                 </div>
               </section>
-        
-              <script>
-                document.addEventListener("DOMContentLoaded", function() {
-                    let dropdowns = document.querySelectorAll('.dropdown');
-            
-                    dropdowns.forEach(function(dropdown) {
-                        dropdown.addEventListener('click', function(event) {
-                            event.stopPropagation();
-                            dropdown.querySelector('.dropdown-menu').classList.toggle('hidden');
-                        });
-                    });
-            
-                    document.addEventListener('click', function(event) {
-                        dropdowns.forEach(function(dropdown) {
-                            dropdown.querySelector('.dropdown-menu').classList.add('hidden');
-                        });
-                    });
-                });
-            </script>
     </body>
 </html>
