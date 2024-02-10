@@ -19,25 +19,25 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-link" href="adminPages/adminChauffeurs">
+      <a class="nav-link" href="{{route('adminChauffeurs')}}">
         <i class="fas fa-fw fa-light fa-users"></i>
         <span>Chauffeurs</span></a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" href="adminPages/adminPassagers">
+      <a class="nav-link" href="{{route('adminPassagers')}}">
         <i class="fas fa-fw fa-light fa-users"></i>
         <span>Passagers</span></a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" href="adminPages/adminReservation">
+      <a class="nav-link" href="{{route('adminReservation')}}">
         <i class="fas fa-fw fa-duotone fa-check-to-slot"></i>
         <span>Reservation</span></a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-link" href="adminPages/adminProfile">
+      <a class="nav-link" href="{{route('adminProfile')}}">
         <i class="fas fa-fw fa-duotone fa-id-card"></i>
         <span>Profile</span></a>
     </li>

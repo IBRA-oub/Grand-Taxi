@@ -88,20 +88,20 @@ class AdminController extends Controller
     }
     public function adminProfile(){
         
-        return view('adminProfile');
+        return view('adminPages/adminProfile');
      }
      
     public function adminPassagers(){
         
-        return view('adminPassagers');
+        return view('adminPages/adminPassagers');
      }
      public function adminChauffeurs(){
         
-        return view('adminChauffeurs');
+        return view('adminPages/adminChauffeurs');
      }
      public function adminReservation(){
         
-        return view('adminReservation');
+        return view('adminPages/adminReservation');
      }
      
 }

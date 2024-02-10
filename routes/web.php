@@ -60,8 +60,8 @@ Route::middleware(['auth', CheckRole::class . ':admin'])->group(function () {
     });
 
     
-    Route::get('adminPages/adminProfile', [App\Http\Controllers\AdminController::class, 'adminProfile'])->name('adminProfile');
-    Route::get('adminPages/adminPassagers', [App\Http\Controllers\AdminController::class, 'adminPassagers'])->name('adminPassagers');
-    Route::get('adminPages/adminChauffeurs', [App\Http\Controllers\AdminController::class, 'adminChauffeurs'])->name('adminChauffeurs');
-    Route::get('adminPages/adminReservation', [App\Http\Controllers\AdminController::class, 'adminReservation'])->name('adminReservation');
+    Route::get('adminProfile', [AdminController::class, 'adminProfile'])->name('adminProfile');
+    Route::get('adminPassagers', [AdminController::class, 'adminPassagers'])->name('adminPassagers');
+    Route::get('adminChauffeurs', [AdminController::class, 'adminChauffeurs'])->name('adminChauffeurs');
+    Route::get('adminReservation', [AdminController::class, 'adminReservation'])->name('adminReservation');
 });
