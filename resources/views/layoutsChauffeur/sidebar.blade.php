@@ -21,7 +21,7 @@
     <li class="nav-item">
       <a class="nav-link" href="{{route('chauffeurReservation')}}">
         <i class="fas fa-fw fa-light fa-users"></i>
-        <span>Chauffeurs</span></a>
+        <span>Reservation</span></a>
     </li>
 
     <li class="nav-item">
