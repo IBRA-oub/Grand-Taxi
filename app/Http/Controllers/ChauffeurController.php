@@ -88,6 +88,21 @@ class ChauffeurController extends Controller
         return redirect()->route('chauffeurProfile')->with('success','chauffeur Profile updated successfuly');
     }
 
+    public function  updateStatus(Request $request, $id)
+    {
+        
+         
+        $chauffeurProfile = User::findOrFail($id);
+
+        $chauffeurProfile->status = $request->input('status');
+        
+        $chauffeurProfile->save();
+        
+        return redirect()->route('dashboardChauffeur')->with('success','chauffeur Profile updated successfuly');
+    }
+
+  
+
     /**
      * Remove the specified resource from storage.
      *
