@@ -38,6 +38,7 @@ class AuthController extends Controller
         $users->phone = $request->input('phone');
 
         $users->role = $request->input('role');
+        $users->softdelete ='0';
         
         if ($request->hasFile('picture')) {
             $file = $request->file('picture');
@@ -63,6 +64,8 @@ class AuthController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ])->validate();
+
+        
     
         if(!Auth::attempt($request->only('email','password'),$request->boolean('remember'))){
             throw ValidationException::withMessages([

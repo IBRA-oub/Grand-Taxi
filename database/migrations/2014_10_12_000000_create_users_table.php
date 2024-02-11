@@ -19,12 +19,15 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('picture');
-            $table->integer('phone');
+            $table->string('phone');
             $table->text('description')->nullable();
             $table->string('matricule')->nullable();
             $table->enum('status',['disponible','en cour','hors service'])->nullable();
             $table->string('typeVoiture')->nullable();
             $table->string('typePayement')->nullable();
+            $table->string('depart')->nullable();
+            $table->string('arrive')->nullable();
+            $table->string('softdelete');
             $table->enum('role',['admin','passager','chauffeur']);
             $table->rememberToken();
             $table->timestamps();

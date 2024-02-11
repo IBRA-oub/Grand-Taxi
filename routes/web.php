@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ChauffeurController;
 use App\Http\Middleware\CheckRole;
 
 
@@ -38,6 +39,11 @@ Route::middleware(['auth', CheckRole::class . ':chauffeur'])->group(function () 
     Route::get('dashboardChauffeur', function () {
         return view('dashboardChauffeur');
     })->name('dashboardChauffeur');
+
+
+    Route::get('chauffeurProfile', [ChauffeurController::class, 'chauffeurProfile'])->name('chauffeurProfile');
+    Route::get('chauffeurHistorique', [ChauffeurController::class, 'chauffeurHistorique'])->name('chauffeurHistorique');
+    Route::get('chauffeurReservation', [ChauffeurController::class, 'chauffeurReservation'])->name('chauffeurReservation');
 });
 
 // =========================Passager======================
