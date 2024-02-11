@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class ChauffeurController extends Controller
 {
@@ -68,7 +69,23 @@ class ChauffeurController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+         
+        $chauffeurProfile = User::findOrFail($id);
+
+        $chauffeurProfile->name = $request->input('name');
+        $chauffeurProfile->phone = $request->input('phone');
+        $chauffeurProfile->typePayement = $request->input('typePayement');
+        $chauffeurProfile->matricule = $request->input('matricule');
+        $chauffeurProfile->typeVoiture = $request->input('typeVoiture');
+        $chauffeurProfile->description = $request->input('description');
+        $chauffeurProfile->depart = $request->input('depart');
+        $chauffeurProfile->arrive = $request->input('arrive');
+        
+        
+        $chauffeurProfile->save();
+        
+        return redirect()->route('chauffeurProfile')->with('success','chauffeur Profile updated successfuly');
     }
 
     /**

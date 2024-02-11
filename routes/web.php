@@ -40,6 +40,12 @@ Route::middleware(['auth', CheckRole::class . ':chauffeur'])->group(function () 
         return view('dashboardChauffeur');
     })->name('dashboardChauffeur');
 
+    Route::controller(ChauffeurController::class)->prefix('chauffeurPages')->group(function () {
+        
+        Route::put('edit/{id}', 'update')->name('chauffeurProfile.update');
+    });
+
+
 
     Route::get('chauffeurProfile', [ChauffeurController::class, 'chauffeurProfile'])->name('chauffeurProfile');
     Route::get('chauffeurHistorique', [ChauffeurController::class, 'chauffeurHistorique'])->name('chauffeurHistorique');

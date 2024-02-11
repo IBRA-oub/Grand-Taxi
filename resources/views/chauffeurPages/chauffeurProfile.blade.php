@@ -11,7 +11,7 @@
     </div>
 @endif
  
-    <form method="POST" enctype="multipart/form-data" id="profile_setup_frm" action="" >
+    <form method="POST" enctype="multipart/form-data" id="profile_setup_frm" action="{{ route('chauffeurProfile.update', auth()->user()->id) }}" >
 
         @csrf
         @method('PUT')
@@ -30,7 +30,7 @@
                     </div>
                     <div class="col-md-6">
                         <label class="labels">Email</label>
-                        <input type="text" name="email" disabled class="form-control" value="{{ auth()->user()->email }}" placeholder="Email">
+                        <input type="email" name="email" disabled class="form-control" value="{{ auth()->user()->email }}" placeholder="Email">
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -47,7 +47,6 @@
                 </div>
 
                     <hr>
-
                 <div class="row mt-2">
                     <div class="col-md-6">
                         <label class="labels">matricule</label>
@@ -71,7 +70,6 @@
 
 
                 <hr>
-                
                 <div class="row mt-2">
                     <div class="col-md-6">
                         <label class="labels">depart</label>
