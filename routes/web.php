@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ChauffeurController;
+use App\Http\Controllers\PassagerController;
 use App\Http\Middleware\CheckRole;
 
 
@@ -60,6 +61,17 @@ Route::middleware(['auth', CheckRole::class . ':passager'])->group(function () {
     Route::get('dashboardPassager', function () {
         return view('dashboardPassager');
     })->name('dashboardPassager');
+
+    Route::controller(PassagerController::class)->prefix('passagerPages')->group(function () {
+        
+        Route::put('edit/{id}', 'update')->name('passagerProfile.update');
+    
+    });
+
+    Route::get('passagerProfile', [PassagerController::class, 'passagerProfile'])->name('passagerProfile');
+    Route::get('passagerHistorique', [PassagerController::class, 'passagerHistorique'])->name('passagerHistorique');
+    Route::get('passagerReservation', [PassagerController::class, 'passagerReservation'])->name('passagerReservation');
+    Route::get('passagerFavorite', [PassagerController::class, 'passagerFavorite'])->name('passagerFavorite');
 });
 
 // =======================Admin===========================
