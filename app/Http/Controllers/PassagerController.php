@@ -110,4 +110,8 @@ class PassagerController extends Controller
         
         return view('passagerPages/passagerFavorite');
      }
+     public function passagerRating(){
+        
+        return view('passagerPages/passagerRating');
+     }
 }

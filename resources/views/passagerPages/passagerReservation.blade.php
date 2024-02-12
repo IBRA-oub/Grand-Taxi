@@ -41,7 +41,7 @@
                                 <div>&emsp; </div>
                                <span><a href="" style=" color: #f57878;"><i class="fas fa-duotone fa-heart fa-2xl" ></i></a></span>
                                <span>&emsp; &emsp; </span> 
-                               </span> <a href=""> <i class="fas fa-solid fa-check fa-2xl" style="color: #63E6BE;"></i></a></span>
+                               </span> <a href="{{route('passagerRating')}}"> <i class="fas fa-solid fa-check fa-2xl" style="color: #63E6BE;"></i></a></span>
               
                             </div>
                         </div>
