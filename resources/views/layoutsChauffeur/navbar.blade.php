@@ -20,17 +20,37 @@
     
       <!-- Nav Item - Alerts -->
       <li class="nav-item dropdown no-arrow mx-1">
-        
+        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-duotone fa-eye"></i>
+          <!-- Counter - Alerts -->
+          <span class="badge badge-danger badge-counter">+</span>
+        </a>
         <!-- Dropdown - Alerts -->
-        
+        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+          <h6 class="dropdown-header">
+            votre status
+          </h6>
+          <form action="{{ route('chauffeurStatus.update', auth()->user()->id) }}" method="POST">
+            @csrf
+            @method('PUT')
+            <select name="status" class="form-select" aria-label="Default select example">
+              <option selected>choiser ici</option>
+              <option value="disponible">disponible</option>
+              <option value="en cour">en cour</option>
+              <option value="hors service">hors service</option>
+            </select>
+          
+           
+            <button type="submit" class="dropdown-item text-center fs-6 text-gray-600">save status</button>
+
+          </form>
+         
+         
+         
+        </div>
       </li>
     
-      <!-- Nav Item - Messages -->
-      <li class="nav-item dropdown no-arrow mx-1">
-        
-        <!-- Dropdown - Messages -->
-       
-      </li>
+     
     
       <div class="topbar-divider d-none d-sm-block"></div>
     
