@@ -114,4 +114,9 @@ class PassagerController extends Controller
         
         return view('passagerPages/passagerRating');
      }
+
+     public function passagerSearsh(){
+        
+        return view('passagerPages/passagerSearsh');
+     }
 }

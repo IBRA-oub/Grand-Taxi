@@ -73,6 +73,7 @@ Route::middleware(['auth', CheckRole::class . ':passager'])->group(function () {
     Route::get('passagerReservation', [PassagerController::class, 'passagerReservation'])->name('passagerReservation');
     Route::get('passagerFavorite', [PassagerController::class, 'passagerFavorite'])->name('passagerFavorite');
     Route::get('passagerRating', [PassagerController::class, 'passagerRating'])->name('passagerRating');
+    Route::get('passagerSearsh', [PassagerController::class, 'passagerSearsh'])->name('passagerSearsh');
 });
 
 // =======================Admin===========================
