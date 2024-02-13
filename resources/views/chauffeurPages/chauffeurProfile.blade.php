@@ -80,6 +80,11 @@
                         <label class="labels">arrive</label>
                         <input type="text" name="arrive" class="form-control" placeholder="Marrakech" value="{{ auth()->user()->arrive }}">
                     </div>
+
+                    <div class="col-md-6">
+                        <label class="labels">date de depart</label>
+                        <input type="date" name="dateDepart" class="form-control" placeholder="00-00-0000" value="{{ auth()->user()->dateDepart }}">
+                    </div>
                    
                 </div>
                  

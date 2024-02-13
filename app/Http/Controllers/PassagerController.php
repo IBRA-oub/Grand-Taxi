@@ -123,8 +123,11 @@ class PassagerController extends Controller
      public function search(Request $request){
         $depart= $request->input('depart');
         $arrive = $request->input('arrive');
+        $date = $request->input('date');
         $utilisateurs = User::where('depart', $depart)
         ->where('arrive', $arrive)
+        ->where('dateDepart', $date)
+        ->where('status','disponible')
         ->get();
 
         return view('passagerPages/passagerSearsh', ['utilisateurs'=> $utilisateurs]);

@@ -185,8 +185,13 @@
                <div class="col-md-10">
                 <form action="{{route('reservation.create')}}" method="POST">
                     @csrf
-                    <input type="hidden" value="{{$utilisateur['id']}}">
-                    <input type="hidden" value="{{auth()->user()->id}}">
+                    <input type="hidden" name="chauffeur_id" value="{{$utilisateur['id']}}">
+                    <input type="hidden" name="passager_id" value="{{auth()->user()->id}}">
+                    
+                    <input type="hidden" name="depart" value="{{$utilisateur['depart']}}">
+                    <input type="hidden" name="arrive" value="{{$utilisateur['arrive']}}">
+                   
+                  
         
                         <div class="card card-body mt-3 shadow">
                                 <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row">
@@ -200,6 +205,8 @@
                                         <h6 class="media-title font-weight-semibold">
                                             <p href="#" data-abc="true">Name : <strong>{{$utilisateur['name']}}</strong></p>
                                             <p href="#" data-abc="true">type voiture : <strong> {{$utilisateur['typeVoiture']}}</strong></p>
+                                            <p href="#" data-abc="true">date de depart: <strong> {{$utilisateur['dateDepart']}}</strong></p>
+                                            <p href="#" data-abc="true">status: <strong> {{$utilisateur['status']}}</strong></p>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
@@ -208,7 +215,7 @@
                                             <span>5</span>
                                         </h6>
         
-                                        <div>&emsp; </div>
+                                        
                                         
                                   
                                         <p class="card-text"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><g fill="none" stroke="#ff6900" stroke-width="2"><path d="M5 8.515C5 4.917 8.134 2 12 2s7 2.917 7 6.515c0 3.57-2.234 7.735-5.72 9.225a3.277 3.277 0 0 1-2.56 0C7.234 16.25 5 12.084 5 8.515Z"></path><path d="M14 9a2 2 0 1 1-4 0a2 2 0 0 1 4 0Z"></path><path stroke-linecap="round" d="M20.96 15.5c.666.602 1.04 1.282 1.04 2c0 2.485-4.477 4.5-10 4.5S2 19.985 2 17.5c0-.718.374-1.398 1.04-2"></path></g></svg>{{$utilisateur['depart']}} ———————————————————————— <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><g fill="none" stroke="#ff6900" stroke-width="2"><path d="M5 8.515C5 4.917 8.134 2 12 2s7 2.917 7 6.515c0 3.57-2.234 7.735-5.72 9.225a3.277 3.277 0 0 1-2.56 0C7.234 16.25 5 12.084 5 8.515Z"></path><path d="M14 9a2 2 0 1 1-4 0a2 2 0 0 1 4 0Z"></path><path stroke-linecap="round" d="M20.96 15.5c.666.602 1.04 1.282 1.04 2c0 2.485-4.477 4.5-10 4.5S2 19.985 2 17.5c0-.718.374-1.398 1.04-2"></path></g></svg> {{$utilisateur['arrive']}}</p>

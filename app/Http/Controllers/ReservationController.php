@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\reservation;
+use Illuminate\Support\Facades\DB;
 
 class ReservationController extends Controller
 {
@@ -14,7 +15,13 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        //
+        $reservation = DB::table('users')
+        ->join('reservation', 'users.id', '=', 'reservation.chauffeur_id')
+        ->select('users.*')
+        ->get();
+       
+        return view('passagerPages/passagerReservation', ['reservation'=> $reservation]);
+       
     }
 
     /**
@@ -36,18 +43,17 @@ class ReservationController extends Controller
     public function store(Request $request)
     {
         $reservation = new reservation();
-        $reservation->depart = $request->input('name');
-        $reservation->arrive = $request->input('email');
-
-        $reservation->chauffeur_id = $request->input('phone');
-
-        $reservation->passager_id = $request->input('role');
+        $reservation->depart = $request->input('depart');
+        $reservation->arrive = $request->input('arrive');
+        $reservation->chauffeur_id = $request->input('chauffeur_id');
+        $reservation->passager_id = $request->input('passager_id');
         $reservation->softdelete ='0';
         
         
         $reservation->save();
 
-        return redirect()->route('login');
+        
+        return redirect()->route('passagerReservation')->with('success','you are reservated successfuly');
     }
 
     /**

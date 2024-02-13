@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('typePayement')->nullable();
             $table->string('depart')->nullable();
             $table->string('arrive')->nullable();
+            $table->date('dateDepart')->nullable();
             $table->string('softdelete');
             $table->enum('role',['admin','passager','chauffeur']);
             $table->rememberToken();

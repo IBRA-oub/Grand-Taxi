@@ -81,6 +81,7 @@ class ChauffeurController extends Controller
         $chauffeurProfile->description = $request->input('description');
         $chauffeurProfile->depart = $request->input('depart');
         $chauffeurProfile->arrive = $request->input('arrive');
+        $chauffeurProfile->dateDepart = $request->input('dateDepart');
         
         
         $chauffeurProfile->save();

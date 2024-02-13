@@ -4,6 +4,12 @@
   
 @section('contents')
 
+@if(Session::has('success'))
+<div class="alert alert-success" role="alert">
+    {{ Session::get('success') }}
+</div>
+@endif
+
 <div class=" mt-50 mb-50 "  style="min-width: 1400px;">
             
     <div class="row">

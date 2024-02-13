@@ -79,7 +79,7 @@ Route::middleware(['auth', CheckRole::class . ':passager'])->group(function () {
 
     Route::controller(ReservationController::class)->prefix('passagerPages')->group(function () {
         
-        Route::post('create', 'create')->name('reservation.create');
+        Route::post('passagerReservation', 'store')->name('reservation.create');
     
     });
 });
