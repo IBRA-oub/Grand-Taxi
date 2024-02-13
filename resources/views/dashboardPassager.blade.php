@@ -5,18 +5,18 @@
 @section('contents')
 
 <div class="container mt-5">
-    <form class="row g-3 align-items-center search-bar border rounded shadow p-3">
+    <form action="{{route('reservation.searsh')}}" method="GET" class="row g-3 align-items-center search-bar border rounded shadow p-3">
         <div class="col">
             <label for="depart" class="form-label" style="color: black;">Départ</label>
-            <input type="text" class="form-control" id="depart" placeholder="Entrez le lieu de départ">
+            <input type="text" name="depart" class="form-control" id="depart" placeholder="Entrez le lieu de départ">
         </div>
         <div class="col">
             <label for="arrivee" class="form-label" style="color: black;">Arrivée</label>
-            <input type="text" class="form-control" id="arrivee" placeholder="Entrez le lieu d'arrivée">
+            <input type="text" name="arrive" class="form-control" id="arrivee" placeholder="Entrez le lieu d'arrivée">
         </div>
         <div class="col">
             <label for="date" class="form-label" style="color: black;">Date</label>
-            <input type="date" class="form-control" id="date">
+            <input type="date" name="date" class="form-control" id="date">
         </div>
         
             <button type="submit" class="rounded font-semibold border-2 border-white shadow flex items-center gap-2 h-full px-6 rounded-full bg-primary text-lg text-white">

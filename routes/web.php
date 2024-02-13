@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ChauffeurController;
 use App\Http\Controllers\PassagerController;
+use App\Http\Controllers\ReservationController;
 use App\Http\Middleware\CheckRole;
 
 
@@ -65,6 +66,7 @@ Route::middleware(['auth', CheckRole::class . ':passager'])->group(function () {
     Route::controller(PassagerController::class)->prefix('passagerPages')->group(function () {
         
         Route::put('edit/{id}', 'update')->name('passagerProfile.update');
+        Route::get('/search',  'search')->name('reservation.searsh');
     
     });
 
@@ -74,6 +76,12 @@ Route::middleware(['auth', CheckRole::class . ':passager'])->group(function () {
     Route::get('passagerFavorite', [PassagerController::class, 'passagerFavorite'])->name('passagerFavorite');
     Route::get('passagerRating', [PassagerController::class, 'passagerRating'])->name('passagerRating');
     Route::get('passagerSearsh', [PassagerController::class, 'passagerSearsh'])->name('passagerSearsh');
+
+    Route::controller(ReservationController::class)->prefix('passagerPages')->group(function () {
+        
+        Route::post('create', 'create')->name('reservation.create');
+    
+    });
 });
 
 // =======================Admin===========================

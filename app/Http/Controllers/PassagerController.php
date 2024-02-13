@@ -119,4 +119,14 @@ class PassagerController extends Controller
         
         return view('passagerPages/passagerSearsh');
      }
+
+     public function search(Request $request){
+        $depart= $request->input('depart');
+        $arrive = $request->input('arrive');
+        $utilisateurs = User::where('depart', $depart)
+        ->where('arrive', $arrive)
+        ->get();
+
+        return view('passagerPages/passagerSearsh', ['utilisateurs'=> $utilisateurs]);
+    }
 }

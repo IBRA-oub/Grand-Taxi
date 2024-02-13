@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\reservation;
 
-class AdminController extends Controller
+class ReservationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +24,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+    //    
     }
 
     /**
@@ -35,7 +35,19 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $reservation = new reservation();
+        $reservation->depart = $request->input('name');
+        $reservation->arrive = $request->input('email');
+
+        $reservation->chauffeur_id = $request->input('phone');
+
+        $reservation->passager_id = $request->input('role');
+        $reservation->softdelete ='0';
+        
+        
+        $reservation->save();
+
+        return redirect()->route('login');
     }
 
     /**
@@ -69,10 +81,7 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $adminProfile = User::findOrFail($id);
-        $adminProfile->update($request->all());
-
-        return redirect()->route('adminProfile')->with('success','adminProfile updated successfuly');
+        //
     }
 
     /**
@@ -85,22 +94,4 @@ class AdminController extends Controller
     {
         //
     }
-    public function adminProfile(){
-        
-        return view('adminPages/adminProfile');
-     }
-     
-    public function adminPassagers(){
-        
-        return view('adminPages/adminPassagers');
-     }
-     public function adminChauffeurs(){
-        
-        return view('adminPages/adminChauffeurs');
-     }
-     public function adminReservation(){
-        
-        return view('adminPages/adminReservation');
-     }
-     
 }

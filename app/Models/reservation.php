@@ -12,9 +12,8 @@ class reservation extends Model
 
     protected $fillable = [
         'depart',
-        'arrive',
-        'date',
-        'rating',
+        'arrive'
+        
        
     ];
 

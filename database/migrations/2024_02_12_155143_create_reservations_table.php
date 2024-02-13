@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('depart');
             $table->string('arrive');
-            $table->date('date');
+            
             $table->string('softdelete');
-            $table->integer('rating');
+            $table->integer('rating')->nullable();
             $table->foreignId('chauffeur_id')
             ->constrained('users')
             ->onDelete('cascade')
