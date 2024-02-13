@@ -74,12 +74,14 @@ Route::middleware(['auth', CheckRole::class . ':passager'])->group(function () {
     Route::get('passagerHistorique', [PassagerController::class, 'passagerHistorique'])->name('passagerHistorique');
     Route::get('passagerReservation', [PassagerController::class, 'passagerReservation'])->name('passagerReservation');
     Route::get('passagerFavorite', [PassagerController::class, 'passagerFavorite'])->name('passagerFavorite');
-    Route::get('passagerRating', [PassagerController::class, 'passagerRating'])->name('passagerRating');
+    Route::get('passagerRating/{id}', [PassagerController::class, 'passagerRating'])->name('passagerRating');
     Route::get('passagerSearsh', [PassagerController::class, 'passagerSearsh'])->name('passagerSearsh');
 
     Route::controller(ReservationController::class)->prefix('passagerPages')->group(function () {
         
         Route::post('passagerReservation', 'store')->name('reservation.create');
+        Route::get('passagerReservation', 'index')->name('passagerPages');
+        Route::put('edit/{id}', 'update')->name('rating.update');
     
     });
 });

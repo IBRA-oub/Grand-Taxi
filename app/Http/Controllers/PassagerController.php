@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Reservation;
 
 class PassagerController extends Controller
 {
@@ -110,9 +111,9 @@ class PassagerController extends Controller
         
         return view('passagerPages/passagerFavorite');
      }
-     public function passagerRating(){
+     public function passagerRating( $id){
         
-        return view('passagerPages/passagerRating');
+        return view('passagerPages/passagerRating', ['id' => $id]);
      }
 
      public function passagerSearsh(){

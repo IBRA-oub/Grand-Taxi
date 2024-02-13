@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('depart');
             $table->string('arrive');
-            
             $table->string('softdelete');
+            $table->string('historique');
+            $table->string('favorite');
             $table->integer('rating')->nullable();
             $table->foreignId('chauffeur_id')
             ->constrained('users')

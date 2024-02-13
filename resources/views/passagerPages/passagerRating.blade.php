@@ -1,3 +1,5 @@
+
+
 @extends('layoutsPassager.app')
   
 @section('title')
@@ -11,10 +13,11 @@
     </div>
 @endif
  
-    <form method="POST" enctype="multipart/form-data" id="profile_setup_frm" action="{{ route('passagerProfile.update', auth()->user()->id) }}" >
-
+    <form method="POST" enctype="multipart/form-data" id="profile_setup_frm" action="{{ route('rating.update', $id)}}" >
+ 
         @csrf
         @method('PUT')
+        
     <div class="row">
         <div class="col-md-12 border-right">
             <div class="p-3 py-5">

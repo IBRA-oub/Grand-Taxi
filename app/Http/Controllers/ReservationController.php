@@ -15,12 +15,13 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        $reservation = DB::table('users')
-        ->join('reservation', 'users.id', '=', 'reservation.chauffeur_id')
-        ->select('users.*')
+        $reservations = DB::table('users')
+        ->join('reservations', 'users.id', '=', 'reservations.chauffeur_id')
         ->get();
-       
-        return view('passagerPages/passagerReservation', ['reservation'=> $reservation]);
+
+        
+      
+         return view('passagerPages/passagerReservation', ['reservations'=> $reservations]);
        
     }
 
@@ -48,12 +49,14 @@ class ReservationController extends Controller
         $reservation->chauffeur_id = $request->input('chauffeur_id');
         $reservation->passager_id = $request->input('passager_id');
         $reservation->softdelete ='0';
+        $reservation->historique ='0';
+        $reservation->favorite ='0';
         
         
         $reservation->save();
 
         
-        return redirect()->route('passagerReservation')->with('success','you are reservated successfuly');
+        return redirect()->route('passagerPages')->with('success','you are reservated successfuly');
     }
 
     /**
@@ -85,9 +88,16 @@ class ReservationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
-        //
+        $ratingUpdate = reservation::findOrFail($id);
+
+        $ratingUpdate->name = $request->input('rating');
+        $ratingUpdate->historique = '1';
+        
+        $ratingUpdate->save();
+        
+        return redirect()->route('passagerHistorique')->with('success','reservation complet successfuly');
     }
 
     /**
