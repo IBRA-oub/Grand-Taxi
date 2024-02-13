@@ -60,18 +60,22 @@
             <span>Dashboard</span></a>
         </li>
         
+        <form action="{{route('searshVoiture.searsh')}}" method="GET">
+            @csrf
+            @method('PUT')
        <li class="nav-item">
         <label class="labels" style="color: aliceblue; margin-left:5px;">type voiture</label>
         <div class="input-group">
             
-            <input type="text" class="form-control bg-light border-0 small" placeholder="grand ford" aria-label="Search" aria-describedby="basic-addon2">
+            <input name="voitureSearsh" type="text" class="form-control bg-light border-0 small" placeholder="grand ford" aria-label="Search" aria-describedby="basic-addon2">
             <div class="input-group-append" >
-              <button class="btn btn-primary" style="background-color: rgb(34, 225, 246);" type="button">
+              <button type="submit" class="btn btn-primary" style="background-color: rgb(34, 225, 246);" type="button">
                 <i class="fas fa-search fa-sm"></i>
               </button>
             </div>
           </div>
        </li>
+    </form>
 
        <li class="nav-item">
         <label class="labels" style="color: aliceblue; margin-left:5px;">rating</label>

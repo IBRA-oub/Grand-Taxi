@@ -65,17 +65,19 @@ Route::middleware(['auth', CheckRole::class . ':passager'])->group(function () {
 
     Route::controller(PassagerController::class)->prefix('passagerPages')->group(function () {
         
-        Route::put('edit/{id}', 'update')->name('passagerProfile.update');
+        Route::put('editP/{id}', 'update')->name('passagerProfile.update');
         Route::get('/search',  'search')->name('reservation.searsh');
+        Route::get('/searchR',  'searchRapide')->name('reservationRapide.searsh');
+        Route::get('/searchVoiture',  'searchVoiture')->name('searshVoiture.searsh');
     
     });
 
     Route::get('passagerProfile', [PassagerController::class, 'passagerProfile'])->name('passagerProfile');
-    Route::get('passagerFavorite', [PassagerController::class, 'passagerFavorite'])->name('passagerFavorite');
     Route::get('passagerRating/{id}', [PassagerController::class, 'passagerRating'])->name('passagerRating');
     Route::get('passagerSearsh', [PassagerController::class, 'passagerSearsh'])->name('passagerSearsh');
 
     Route::get('passagerHistorique', [ReservationController::class, 'historiqueShow'])->name('passagerHistorique');
+    Route::get('passagerFavorite', [ReservationController::class, 'favoriteShow'])->name('passagerFavorite');
     Route::get('passagerReservation', [ReservationController::class, 'index'])->name('passagerReservation');
     
     Route::controller(ReservationController::class)->prefix('passagerPages')->group(function () {

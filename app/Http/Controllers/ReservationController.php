@@ -123,6 +123,15 @@ class ReservationController extends Controller
         return redirect()->route('passagerFavorite')->with('success','route add to favorite successfuly');
     }
 
+    public function FavoriteShow()
+    {
+        $favoriteShow = DB::table('users')
+         ->join('reservations', 'users.id', '=', 'reservations.chauffeur_id')
+         ->where('favorite','1')->get();
+        
+         return view('passagerPages/passagerFavorite', ['favoriteShow'=> $favoriteShow]);
+    }
+
     /**
      * Remove the specified resource from storage.
      *

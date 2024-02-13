@@ -133,4 +133,28 @@ class PassagerController extends Controller
 
         return view('passagerPages/passagerSearsh', ['utilisateurs'=> $utilisateurs]);
     }
+
+    public function searchRapide(Request $request){
+        $depart= $request->input('depart');
+        $arrive = $request->input('arrive');
+        
+        $utilisateurs = User::where('depart', $depart)
+        ->where('arrive', $arrive)
+        
+        ->where('status','disponible')
+        ->get();
+
+        return view('passagerPages/passagerSearsh', ['utilisateurs'=> $utilisateurs]);
+    }
+
+    public function searchVoiture(Request $request){
+        $typeVoiture= $request->input('voitureSearsh');
+        
+            
+        $utilisateurs = User::where('typeVoiture', '%' .$typeVoiture. '%')
+        ->where('status','disponible')
+        ->get();
+
+        return view('passagerPages/passagerSearsh', ['utilisateurs'=> $utilisateurs]);
+    }
 }
