@@ -47,10 +47,14 @@
                                 <div>&emsp; </div>
                                 <div>&emsp; </div>
                                 <div>&emsp; </div>
-                               <span><a href="" style=" color: #f57878;"><i class="fas fa-duotone fa-heart fa-2xl" ></i></a></span>
+                                <form method="POST" action="{{ route('favorite.update', $reservation->id) }}" >
+                                    @csrf
+                                    @method('PUT')
+                               <span><button type="submit" style=" color: #f57878; border: none; background-color: white;"><i class="fas fa-duotone fa-heart fa-2xl" ></i></button></span>
+                                 
                                <span>&emsp; &emsp; </span> 
                                </span> <a href="{{route('passagerRating',$reservation->id)}}"> <i class="fas fa-solid fa-check fa-2xl" style="color: #63E6BE;"></i></a></span>
-              
+                            </form>
                             </div>
                         </div>
                     </div>    

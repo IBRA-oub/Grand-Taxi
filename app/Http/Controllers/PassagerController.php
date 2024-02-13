@@ -102,10 +102,10 @@ class PassagerController extends Controller
         
         return view('passagerPages/passagerHistorique');
      }
-     public function passagerReservation(){
+    //  public function passagerReservation(){
         
-        return view('passagerPages/passagerReservation');
-     }
+    //     return view('passagerPages/passagerReservation');
+    //  }
 
      public function passagerFavorite(){
         

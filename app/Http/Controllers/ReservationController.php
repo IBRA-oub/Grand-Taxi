@@ -65,9 +65,13 @@ class ReservationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function historiqueShow()
     {
-        //
+        $historiqueShow = DB::table('users')
+         ->join('reservations', 'users.id', '=', 'reservations.chauffeur_id')
+         ->where('historique','1')->get();
+        
+         return view('passagerPages/passagerHistorique', ['historiqueShow'=> $historiqueShow]);
     }
 
     /**
@@ -92,12 +96,31 @@ class ReservationController extends Controller
     {
         $ratingUpdate = reservation::findOrFail($id);
 
-        $ratingUpdate->name = $request->input('rating');
+        $ratingUpdate->rating = $request->input('rating');
         $ratingUpdate->historique = '1';
         
         $ratingUpdate->save();
         
         return redirect()->route('passagerHistorique')->with('success','reservation complet successfuly');
+    }
+
+     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function favoriteUpdate(Request $request,$id)
+    {
+        $favoriteUpdate = reservation::findOrFail($id);
+
+        $favoriteUpdate->favorite = '1';
+        
+        
+        $favoriteUpdate->save();
+        
+        return redirect()->route('passagerFavorite')->with('success','route add to favorite successfuly');
     }
 
     /**
