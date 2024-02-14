@@ -62,9 +62,9 @@
         
         <form action="{{route('searshVoiture.searsh')}}" method="GET">
             @csrf
-            @method('PUT')
+          
        <li class="nav-item">
-        <label class="labels" style="color: aliceblue; margin-left:5px;">type voiture</label>
+        <label class="labels" style="color: aliceblue; margin-left:5px;">filter by type voiture</label>
         <div class="input-group">
             
             <input name="voitureSearsh" type="text" class="form-control bg-light border-0 small" placeholder="grand ford" aria-label="Search" aria-describedby="basic-addon2">
@@ -77,18 +77,28 @@
        </li>
     </form>
 
+   <form action="{{route('searshRating.searsh')}}" method="GET">
+        @csrf
+
        <li class="nav-item">
-        <label class="labels" style="color: aliceblue; margin-left:5px;">rating</label>
+        <label class="labels" style="color: aliceblue; margin-left:5px;">filter by rating</label>
         <div class="input-group">
-            
-            <input type="text" class="form-control bg-light border-0 small" placeholder="4" aria-label="Search" aria-describedby="basic-addon2">
+            <select class="form-select" name="ratingSearsh" aria-label="Default select example">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
             <div class="input-group-append" >
-              <button class="btn btn-primary" style="background-color: rgb(34, 225, 246);" type="button">
+              <button type="submit" class="btn btn-primary" style="background-color: rgb(34, 225, 246);" type="button">
                 <i class="fas fa-search fa-sm"></i>
               </button>
             </div>
           </div>
        </li>
+
+    </form>
     
         
         
@@ -181,7 +191,7 @@
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">@yield('title')</h1>
           </div>
-  
+          @if($utilisateurs->isNotEmpty())
           @foreach($utilisateurs as $utilisateur)
           <div class=" mt-50 mb-50 "  style="min-width: 1400px;">
             
@@ -250,6 +260,79 @@
             </div>
         </div>
         @endforeach
+
+         @else
+        
+         @foreach($ratingUtilisateurs as $ratingUtilisateur)
+         <div class=" mt-50 mb-50 "  style="min-width: 1400px;">
+           
+           <div class="row">
+              <div class="col-md-10">
+               <form action="{{route('reservation.create')}}" method="POST">
+                   @csrf
+                   <input type="hidden" name="chauffeur_id" value="{{$ratingUtilisateur->id}}">
+                   <input type="hidden" name="passager_id" value="{{auth()->user()->id}}">
+                   
+                   <input type="hidden" name="depart" value="{{$ratingUtilisateur->depart}}">
+                   <input type="hidden" name="arrive" value="{{$ratingUtilisateur->arrive}}">
+                  
+                 
+       
+                       <div class="card card-body mt-3 shadow">
+                               <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row">
+                                   <div class="mr-2 mb-3 mb-lg-0">
+                                       
+                                           <img src="{{asset('storage/image/' .$ratingUtilisateur->picture)}}" width="170" height="160" alt="" class="rounded">
+                                      
+                                   </div>
+       
+                                   <div class="media-body ">
+                                       <h6 class="media-title font-weight-semibold">
+                                           <p href="#" data-abc="true">Name : <strong>{{$ratingUtilisateur->name}}</strong></p>
+                                           <p href="#" data-abc="true">type voiture : <strong> {{$ratingUtilisateur->typeVoiture}}</strong></p>
+                                           <p href="#" data-abc="true">date de depart: <strong> {{$ratingUtilisateur->dateDepart}}</strong></p>
+                                           <p href="#" data-abc="true">status: <strong> {{$ratingUtilisateur->status}}</strong></p>
+                                           <i class="fa fa-star"></i>
+                                           <i class="fa fa-star"></i>
+                                           <i class="fa fa-star"></i>
+                                           <i class="fa fa-star"></i>
+                                           <i class="fa fa-star"></i>
+                                          
+                                           <span>{{$ratingUtilisateur->moyenne_etoiles}}</span>
+                                          
+                                       </h6>
+       
+                                       
+                                       
+                                 
+                                       <p class="card-text"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><g fill="none" stroke="#ff6900" stroke-width="2"><path d="M5 8.515C5 4.917 8.134 2 12 2s7 2.917 7 6.515c0 3.57-2.234 7.735-5.72 9.225a3.277 3.277 0 0 1-2.56 0C7.234 16.25 5 12.084 5 8.515Z"></path><path d="M14 9a2 2 0 1 1-4 0a2 2 0 0 1 4 0Z"></path><path stroke-linecap="round" d="M20.96 15.5c.666.602 1.04 1.282 1.04 2c0 2.485-4.477 4.5-10 4.5S2 19.985 2 17.5c0-.718.374-1.398 1.04-2"></path></g></svg>{{$ratingUtilisateur->depart}} ———————————————————————— <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><g fill="none" stroke="#ff6900" stroke-width="2"><path d="M5 8.515C5 4.917 8.134 2 12 2s7 2.917 7 6.515c0 3.57-2.234 7.735-5.72 9.225a3.277 3.277 0 0 1-2.56 0C7.234 16.25 5 12.084 5 8.515Z"></path><path d="M14 9a2 2 0 1 1-4 0a2 2 0 0 1 4 0Z"></path><path stroke-linecap="round" d="M20.96 15.5c.666.602 1.04 1.282 1.04 2c0 2.485-4.477 4.5-10 4.5S2 19.985 2 17.5c0-.718.374-1.398 1.04-2"></path></g></svg> {{$ratingUtilisateur->arrive}}</p>
+                                   </div>
+       
+                                   <div class="border-end border-1" style="height: 160px;"></div>
+       
+                                   <div class="mt-3 mt-lg-0 ml-lg-3 text-center" style=" width: 250px">
+
+                                       <h3 class="mb-0 font-weight-semibold">612.99 <sup>DH</sup></h3>
+                             
+                                       <div>&emsp; </div>
+                                       <div>&emsp; </div>
+                                  
+                                       
+                                       <button  type="submit" class="btn btn-success mt-4 text-white"><i class="icon-cart-add mr-2"></i>reservation</button>
+       
+                                   </div>
+       
+                               </div>
+                           </div>  
+                       </form>  
+       
+                                
+           </div>                     
+           </div>
+       </div>
+       @endforeach
+       @endif
+
   
           <!-- Content Row -->
   

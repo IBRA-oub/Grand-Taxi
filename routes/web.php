@@ -69,13 +69,13 @@ Route::middleware(['auth', CheckRole::class . ':passager'])->group(function () {
         Route::get('/search',  'search')->name('reservation.searsh');
         Route::get('/searchR',  'searchRapide')->name('reservationRapide.searsh');
         Route::get('/searchVoiture',  'searchVoiture')->name('searshVoiture.searsh');
+        Route::get('/searchRating',  'searchRating')->name('searshRating.searsh');
     
     });
 
     Route::get('passagerProfile', [PassagerController::class, 'passagerProfile'])->name('passagerProfile');
     Route::get('passagerRating/{id}', [PassagerController::class, 'passagerRating'])->name('passagerRating');
     Route::get('passagerSearsh', [PassagerController::class, 'passagerSearsh'])->name('passagerSearsh');
-    // Route::get('passagerSearsh', [PassagerController::class, 'ratingShow'])->name('passagerSearsh');
 
     Route::get('passagerHistorique', [ReservationController::class, 'historiqueShow'])->name('passagerHistorique');
     Route::get('passagerFavorite', [ReservationController::class, 'favoriteShow'])->name('passagerFavorite');

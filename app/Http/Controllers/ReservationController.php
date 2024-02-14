@@ -56,7 +56,7 @@ class ReservationController extends Controller
         $reservation->save();
 
         
-        return redirect()->route('passagerPages')->with('success','you are reservated successfuly');
+        return redirect()->route('passagerReservation')->with('success','you are reservated successfuly');
     }
 
     /**
