@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Reservation;
+use Illuminate\Support\Facades\DB;
 
 class PassagerController extends Controller
 {
@@ -131,7 +132,14 @@ class PassagerController extends Controller
         ->where('status','disponible')
         ->get();
 
-        return view('passagerPages/passagerSearsh', ['utilisateurs'=> $utilisateurs]);
+        $ratings = DB::table('users')
+        ->join('reservations', 'users.id', '=', 'reservations.chauffeur_id')
+        ->select(DB::raw('ROUND(AVG(rating), 1) as moyenne_etoiles'))
+        ->groupBy('users.id')
+        ->get();
+        
+
+        return view('passagerPages/passagerSearsh', ['utilisateurs'=> $utilisateurs , 'ratings'=> $ratings]);
     }
 
     public function searchRapide(Request $request){

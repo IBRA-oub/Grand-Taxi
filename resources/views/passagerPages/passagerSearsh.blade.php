@@ -216,7 +216,9 @@
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
-                                            <span>5</span>
+                                            @foreach($ratings as $rating)
+                                            <span>{{$rating->moyenne_etoiles}}</span>
+                                            @endforeach
                                         </h6>
         
                                         
