@@ -3,7 +3,15 @@
 @section('title')
   
 @section('contents')
-    <h1 class="mb-0">Profile</h1>
+    <h1 class="mb-0">
+        <i class="fas fa-duotone fa-star" style="color: rgb(239, 239, 14)"></i>
+        <i class="fas fa-duotone fa-star" style="color: rgb(239, 239, 14)"></i>
+        <i class="fas fa-duotone fa-star" style="color: rgb(239, 239, 14)"></i>
+        <i class="fas fa-duotone fa-star" style="color: rgb(239, 239, 14)"></i>
+        <i class="fas fa-duotone fa-star" style="color: rgb(239, 239, 14)"></i>
+
+        <span class=" badge-counter" style="color: black"> {{$ratingChauffeur->moyenne_etoiles}}</span>
+    </h1>
     <hr />
     @if(Session::has('success'))
     <div class="alert alert-success" role="alert">

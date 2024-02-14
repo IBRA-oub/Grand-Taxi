@@ -20,8 +20,28 @@ class ReservationController extends Controller
         ->get();
 
         
-      
          return view('passagerPages/passagerReservation', ['reservations'=> $reservations]);
+       
+    }
+
+
+     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexChauffeur()
+    {
+        $chauffeurId = auth()->id();
+        
+        $reservations = DB::table('users')
+        ->join('reservations', 'users.id', '=', 'reservations.passager_id')
+        ->where('reservations.chauffeur_id', $chauffeurId) 
+        ->get();
+
+       
+        
+         return view('chauffeurPages/chauffeurReservation', ['reservations'=> $reservations]);
        
     }
 
@@ -67,11 +87,24 @@ class ReservationController extends Controller
      */
     public function historiqueShow()
     {
+        
         $historiqueShow = DB::table('users')
          ->join('reservations', 'users.id', '=', 'reservations.chauffeur_id')
          ->where('historique','1')->get();
         
          return view('passagerPages/passagerHistorique', ['historiqueShow'=> $historiqueShow]);
+    }
+
+    public function historiqueChauffeur()
+    {
+        $chauffeurId = auth()->id();
+        $historiqueChauffeur = DB::table('users')
+         ->join('reservations', 'users.id', '=', 'reservations.passager_id')
+         ->where('historique','1')
+         ->where('reservations.chauffeur_id', $chauffeurId) 
+         ->get();
+        
+         return view('chauffeurPages/chauffeurHistorique', ['historiqueChauffeur'=> $historiqueChauffeur]);
     }
 
     /**
@@ -80,12 +113,21 @@ class ReservationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
+    public function ratingChauffeur()
+{
+    $chauffeurId = auth()->id(); 
 
-    /**
+    $ratingChauffeur = DB::table('users')
+        ->join('reservations', 'users.id', '=', 'reservations.chauffeur_id')
+        ->select(DB::raw('ROUND(AVG(reservations.rating), 1) as moyenne_etoiles'))
+        ->where('reservations.chauffeur_id', $chauffeurId) 
+        ->groupBy('users.id')
+        ->first();
+       
+     return view('chauffeurPages/chauffeurProfile', ['ratingChauffeur'=> $ratingChauffeur]);
+    }
+     
+     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

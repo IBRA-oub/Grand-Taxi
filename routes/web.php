@@ -51,10 +51,13 @@ Route::middleware(['auth', CheckRole::class . ':chauffeur'])->group(function () 
         Route::put('edit/{id}', 'updateStatus')->name('chauffeurStatus.update');
     });
 
+    Route::get('chauffeurProfile', [ReservationController::class, 'ratingChauffeur'])->name('chauffeurProfile');
 
-    Route::get('chauffeurProfile', [ChauffeurController::class, 'chauffeurProfile'])->name('chauffeurProfile');
-    Route::get('chauffeurHistorique', [ChauffeurController::class, 'chauffeurHistorique'])->name('chauffeurHistorique');
-    Route::get('chauffeurReservation', [ChauffeurController::class, 'chauffeurReservation'])->name('chauffeurReservation');
+    Route::get('chauffeurReservation', [ReservationController::class, 'indexChauffeur'])->name('chauffeurReservation');
+    Route::get('chauffeurHistorique', [ReservationController::class, 'historiqueChauffeur'])->name('chauffeurHistorique');
+
+    // Route::get('chauffeurProfile', [ChauffeurController::class, 'chauffeurProfile'])->name('chauffeurProfile');
+
 });
 
 // =========================Passager======================

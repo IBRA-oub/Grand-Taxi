@@ -21,9 +21,7 @@
            <div class="container-fluid">
 
                <!-- Page Heading -->
-               <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                   <h1 class="h3 mb-0 text-gray-800">Satistique</h1>
-               </div>
+              
 
               
 
@@ -34,23 +32,23 @@
                        <!-- Default Card Example -->
                        <div class="card mb-4">
                            <div class="card-header">
-                               Default Card Example
+                            Le Voyage Anticipé: Réservation en Avance avec le Grand Taxi
                            </div>
                            <div class="card-body">
-                               This card uses Bootstrap's default styling with no utility classes added. Global
-                               styles are the only things modifying the look and feel of this default card example.
+                            Description : Découvrez comment planifier vos déplacements à l'avance 
+                            en réservant votre grand taxi pour un voyage sans stress et une tranquillité d'esprit garantie.
                            </div>
                        </div>
 
                        <!-- Basic Card Example -->
                        <div class="card shadow mb-4">
                            <div class="card-header py-3">
-                               <h6 class="m-0 font-weight-bold text-primary">Basic Card Example</h6>
+                               <h6 class="m-0 font-weight-bold text-primary">La Commodité à Votre Portée: Réservation Instantanée de Grand Taxi"</h6>
                            </div>
                            <div class="card-body">
-                               The styling for this basic card example is created by using default Bootstrap
-                               utility classes. By using utility classes, the style of the card component can be
-                               easily modified with no need for any custom CSS!
+                            Description : Explorez la facilité et la rapidité de réserver un grand taxi 
+                            en ligne ou via une application mobile, mettant
+                             ainsi le pouvoir de votre voyage entre vos mains, où que vous soyez.
                            </div>
                        </div>
 
@@ -63,7 +61,7 @@
                            <!-- Card Header - Dropdown -->
                            <div
                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                               <h6 class="m-0 font-weight-bold text-primary">Dropdown Card Example</h6>
+                               <h6 class="m-0 font-weight-bold text-primary">Réservation sur Mesure avec le Grand Taxi</h6>
                                <div class="dropdown no-arrow">
                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -81,9 +79,9 @@
                            </div>
                            <!-- Card Body -->
                            <div class="card-body">
-                               Dropdown menus can be placed in the card header in order to extend the functionality
-                               of a basic card. In this dropdown card example, the Font Awesome vertical ellipsis
-                               icon in the card header can be clicked on in order to toggle a dropdown menu.
+                            Description : Plongez dans l'expérience de la réservation
+                             personnalisée de grand taxi, où vous pouvez spécifier vos préférences de véhicule, d'itinéraire
+                             et de services supplémentaires pour un voyage adapté à vos besoins uniques.
                            </div>
                        </div>
 
@@ -92,14 +90,14 @@
                            <!-- Card Header - Accordion -->
                            <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
                                role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                               <h6 class="m-0 font-weight-bold text-primary">Collapsable Card Example</h6>
+                               <h6 class="m-0 font-weight-bold text-primary">Le Choix de la Confiance: </h6>
                            </a>
                            <!-- Card Content - Collapse -->
                            <div class="collapse show" id="collapseCardExample">
                                <div class="card-body">
-                                   This is a collapsable card example using Bootstrap's built in collapse
-                                   functionality. <strong>Click on the card header</strong> to see the card body
-                                   collapse and expand!
+                                Description : Découvrez la tranquillité d'esprit en 
+                                sachant que chaque réservation de grand taxi est soutenue par un service de qualité, avec des chauffeurs 
+                                professionnels et des véhicules fiables, pour un voyage sûr et confortable à chaque fois.
                                </div>
                            </div>
                        </div>

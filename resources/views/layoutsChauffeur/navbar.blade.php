@@ -49,6 +49,14 @@
          
         </div>
       </li>
+
+      <li class="nav-item dropdown no-arrow mx-1">
+        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-duotone fa-star" style="color: rgb(239, 239, 14)"></i>
+          <!-- Counter - Alerts -->
+          <span class="badge badge-danger badge-counter"> 2</span>
+        </a>
+      </li>
     
      
     

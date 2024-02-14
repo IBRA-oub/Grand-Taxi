@@ -115,7 +115,8 @@ class ChauffeurController extends Controller
         //
     }
 
-    public function chauffeurProfile(){
+    public function chauffeurProfile()
+    {
         
         return view('chauffeurPages/chauffeurProfile');
      }
