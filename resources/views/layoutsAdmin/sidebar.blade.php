@@ -35,6 +35,8 @@
         <i class="fas fa-fw fa-duotone fa-check-to-slot"></i>
         <span>Reservation</span></a>
     </li>
+
+    
     
     <li class="nav-item">
       <a class="nav-link" href="{{route('adminProfile')}}">

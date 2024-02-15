@@ -24,15 +24,83 @@ class AdminController extends Controller
          return view('dashboardAdmin',['reservationStatistique' => $reservationStatistique , 'chauffeurStatistique' => $chauffeurStatistique , 'passagerStatistique'=> $passagerStatistique]);
     }
 
+
+
+    function showChauffeur(){
+        $chauffeur = User::orderBy('created_at' , 'DESC')
+        ->where('role','chauffeur')
+        ->where('softdelete','0')
+        ->get();
+        return view('adminPages/adminChauffeurs',['chauffeur'=>$chauffeur]);
+    }
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function archiver(Request $request, $id)
     {
-        //
+        $archiverChauffeur = User::findOrFail($id);
+
+        $archiverChauffeur->softdelete ='1';
+        
+        $archiverChauffeur->save();
+        
+        return redirect()->route('adminChauffeurs')->with('success','chauffeur archiver successfuly');
+        
     }
+
+
+    function showPassager(){
+        $passager = User::orderBy('created_at' , 'DESC')
+        ->where('role','passager')
+        ->where('softdelete','0')
+        ->get();
+        return view('adminPages/adminPassagers',['passager'=>$passager]);
+    }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function archiverPassager(Request $request, $id)
+    {
+        $archiverPassager = User::findOrFail($id);
+
+        $archiverPassager->softdelete ='1';
+        
+        $archiverPassager->save();
+        
+        return redirect()->route('adminPassagers')->with('success','passagers archiver successfuly');
+        
+    }
+
+    function showreservation(){
+        $reservation = DB::table('users')
+        ->join('reservations', 'users.id', '=', 'reservations.chauffeur_id')
+        ->get();
+        
+         return view('adminPages/adminReservation',['reservation'=>$reservation]);
+    }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function archiverReservation(Request $request, $id)
+    {
+        $archiverReservation = User::findOrFail($id);
+
+        $archiverReservation->softdelete ='1';
+        
+        $archiverReservation->save();
+        
+        return redirect()->route('adminReservation')->with('success','reservation archiver successfuly');
+        
+    }
+
+
+   
 
     /**
      * Store a newly created resource in storage.
@@ -103,10 +171,10 @@ class AdminController extends Controller
         
         return view('adminPages/adminPassagers');
      }
-     public function adminChauffeurs(){
+    //  public function adminChauffeurs(){
         
-        return view('adminPages/adminChauffeurs');
-     }
+    //     return view('adminPages/adminChauffeurs');
+    //  }
      public function adminReservation(){
         
         return view('adminPages/adminReservation');

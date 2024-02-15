@@ -106,8 +106,19 @@ Route::middleware(['auth', CheckRole::class . ':admin'])->group(function () {
     });
 
     Route::get('dashboardAdmin', [AdminController::class, 'statistique'])->name('dashboardAdmin');
+
+    Route::get('adminChauffeurs', [AdminController::class, 'showChauffeur'])->name('adminChauffeurs');
+    Route::get('adminChauffeurs/{id}', [AdminController::class, 'archiver'])->name('adminChauffeurs.update');
+
+  
+    Route::get('adminPassagers', [AdminController::class, 'showPassager'])->name('adminPassagers');
+    Route::get('adminPassagers/{id}', [AdminController::class, 'archiverPassager'])->name('adminPassagers.update');
+
+    Route::get('adminReservation', [AdminController::class, 'showReservation'])->name('adminReservation');
+    Route::get('adminReservation/{id}', [AdminController::class, 'archiverReservation'])->name('adminReservation.update');
+    
     Route::get('adminProfile', [AdminController::class, 'adminProfile'])->name('adminProfile');
-    Route::get('adminPassagers', [AdminController::class, 'adminPassagers'])->name('adminPassagers');
-    Route::get('adminChauffeurs', [AdminController::class, 'adminChauffeurs'])->name('adminChauffeurs');
-    Route::get('adminReservation', [AdminController::class, 'adminReservation'])->name('adminReservation');
+   
+  
+
 });

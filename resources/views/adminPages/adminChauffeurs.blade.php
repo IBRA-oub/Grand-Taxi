@@ -25,6 +25,35 @@
                 <th>Action</th>
             </tr>
         </thead>
+        <tbody>
+            @if($chauffeur->count() > 0)
+                @foreach($chauffeur as $rs)
+                    <tr>
+                        <td class="align-middle">{{ $loop->iteration }}</td>
+                        <td class="align-middle">{{ $rs->name }}</td>
+                        <td class="align-middle">
+                            <img src="{{asset('storage/image/'.$rs->picture)}}" width="70" height="60" alt="" class="rounded" alt="">
+                            </td>
+                        <td class="align-middle">{{ $rs->phone }}</td>
+                        <td class="align-middle">{{ $rs->matricule }}</td>  
+                        <td class="align-middle">{{ $rs->typeVoiture }}</td>  
+                        <td class="align-middle">
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <form action="{{route('adminChauffeurs.update',$rs->id)}}" method="GET" type="button" class="btn btn-danger p-0" onsubmit="return confirm('archiver')">
+                                    @csrf
+                                    @method('PUT')
+                                    <button class="btn btn-danger m-0">archiver</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+            @else
+                <tr>
+                    <td class="text-center" colspan="5">chauffeurs not found</td>
+                </tr>
+            @endif
+        </tbody>
       
     </table>
 @endsection
