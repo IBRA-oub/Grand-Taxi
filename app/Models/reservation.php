@@ -21,7 +21,5 @@ class reservation extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function routes() {
-        return $this->hasMany(favorite::class);
-    }
+    
 }
