@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\reservation;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -12,9 +14,14 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function statistique()
     {
-        //
+        $reservationStatistique =DB::table('reservations')->count();
+        $chauffeurStatistique =DB::table('users')->where('role','chauffeur')
+        ->count();
+        $passagerStatistique =DB::table('users')->where('role','passager')
+        ->count();
+         return view('dashboardAdmin',['reservationStatistique' => $reservationStatistique , 'chauffeurStatistique' => $chauffeurStatistique , 'passagerStatistique'=> $passagerStatistique]);
     }
 
     /**
@@ -37,6 +44,8 @@ class AdminController extends Controller
     {
         //
     }
+
+   
 
     /**
      * Display the specified resource.

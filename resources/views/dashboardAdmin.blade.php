@@ -34,11 +34,12 @@
                                <div class="row no-gutters align-items-center">
                                    <div class="col mr-2">
                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                           Earnings (Monthly)</div>
-                                       <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                           Reservation</div>
+                                       <div class="h5 mb-0 font-weight-bold ">{{$reservationStatistique}}</div>
                                    </div>
                                    <div class="col-auto">
-                                       <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                    
+                                       <i class="fas fa-solid  fa-route fa-2x "></i>
                                    </div>
                                </div>
                            </div>
@@ -52,11 +53,11 @@
                                <div class="row no-gutters align-items-center">
                                    <div class="col mr-2">
                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                           Earnings (Annual)</div>
-                                       <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                           Chauffeurs</div>
+                                       <div class="h5 mb-0 font-weight-bold text-gray-800">{{$chauffeurStatistique}}</div>
                                    </div>
                                    <div class="col-auto">
-                                       <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                       <i class="fas fa-solid fa-users fa-2x"></i>
                                    </div>
                                </div>
                            </div>
@@ -69,46 +70,24 @@
                            <div class="card-body">
                                <div class="row no-gutters align-items-center">
                                    <div class="col mr-2">
-                                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Passagers
                                        </div>
                                        <div class="row no-gutters align-items-center">
                                            <div class="col-auto">
-                                               <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                               <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$passagerStatistique}}</div>
                                            </div>
-                                           <div class="col">
-                                               <div class="progress progress-sm mr-2">
-                                                   <div class="progress-bar bg-info" role="progressbar"
-                                                       style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                       aria-valuemax="100"></div>
-                                               </div>
-                                           </div>
+                                          
                                        </div>
                                    </div>
                                    <div class="col-auto">
-                                       <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                    <i class="fas fa-solid fa-users fa-2x"></i>
                                    </div>
                                </div>
                            </div>
                        </div>
                    </div>
 
-                   <!-- Pending Requests Card Example -->
-                   <div class="col-xl-3 col-md-6 mb-4">
-                       <div class="card border-left-warning shadow h-100 py-2">
-                           <div class="card-body">
-                               <div class="row no-gutters align-items-center">
-                                   <div class="col mr-2">
-                                       <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                           Pending Requests</div>
-                                       <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                                   </div>
-                                   <div class="col-auto">
-                                       <i class="fas fa-comments fa-2x text-gray-300"></i>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
+                 
                </div>
 
                <div class="row">
@@ -118,23 +97,24 @@
                        <!-- Default Card Example -->
                        <div class="card mb-4">
                            <div class="card-header">
-                               Default Card Example
+                              Tableau de Bord Administratif
                            </div>
                            <div class="card-body">
-                               This card uses Bootstrap's default styling with no utility classes added. Global
-                               styles are the only things modifying the look and feel of this default card example.
+                              Ce tableau de bord offre une vue d'ensemble en temps réel de l'activité des grands taxis, 
+                              
+                              permettant aux administrateurs de surveiller le nombre de courses effectuées, la localisation
+                               des véhicules, ainsi que les temps d'attente et les retards éventuels. Il fournit des outils d'analyse 
+                              et de reporting pour optimiser la gestion opérationnelle du service de taxi.
                            </div>
                        </div>
 
                        <!-- Basic Card Example -->
                        <div class="card shadow mb-4">
                            <div class="card-header py-3">
-                               <h6 class="m-0 font-weight-bold text-primary">Basic Card Example</h6>
+                               <h6 class="m-0 font-weight-bold text-primary">Gestion des Flottes de Grands Taxis</h6>
                            </div>
                            <div class="card-body">
-                               The styling for this basic card example is created by using default Bootstrap
-                               utility classes. By using utility classes, the style of the card component can be
-                               easily modified with no need for any custom CSS!
+                              Ce titre met en avant les fonctionnalités du dashboard dédiées à la gestion des flottes de grands taxis. Les administrateurs peuvent planifier et assigner efficacement les véhicules en fonction de la demande, tout en utilisant des algorithmes de maintenance prédictive pour minimiser les temps d'arrêt et assurer la disponibilité optimale des taxis.
                            </div>
                        </div>
 
@@ -147,7 +127,7 @@
                            <!-- Card Header - Dropdown -->
                            <div
                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                               <h6 class="m-0 font-weight-bold text-primary">Dropdown Card Example</h6>
+                               <h6 class="m-0 font-weight-bold text-primary">Sécurité et Conformité</h6>
                                <div class="dropdown no-arrow">
                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -165,9 +145,8 @@
                            </div>
                            <!-- Card Body -->
                            <div class="card-body">
-                               Dropdown menus can be placed in the card header in order to extend the functionality
-                               of a basic card. In this dropdown card example, the Font Awesome vertical ellipsis
-                               icon in the card header can be clicked on in order to toggle a dropdown menu.
+                              Surveillance des Normes et Gestion des Incidents"
+                              Description : Ce tableau de bord offre des outils de surveillance des normes de sécurité et de conformité réglementaire pour les grands taxis. Les administrateurs peuvent suivre les incidents de sécurité
                            </div>
                        </div>
 
@@ -176,14 +155,12 @@
                            <!-- Card Header - Accordion -->
                            <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
                                role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                               <h6 class="m-0 font-weight-bold text-primary">Collapsable Card Example</h6>
+                               <h6 class="m-0 font-weight-bold text-primary">Mesure de l'Expérience Client</h6>
                            </a>
                            <!-- Card Content - Collapse -->
                            <div class="collapse show" id="collapseCardExample">
                                <div class="card-body">
-                                   This is a collapsable card example using Bootstrap's built in collapse
-                                   functionality. <strong>Click on the card header</strong> to see the card body
-                                   collapse and expand!
+                                 Les administrateurs peuvent analyser les données de feedback des passagers, les évaluations des courses et les tendances de demande pour identifier les points forts et les axes d'amélioration du service de taxi.
                                </div>
                            </div>
                        </div>

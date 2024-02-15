@@ -221,11 +221,11 @@
                                             <p href="#" data-abc="true">type voiture : <strong> {{$utilisateur['typeVoiture']}}</strong></p>
                                             <p href="#" data-abc="true">date de depart: <strong> {{$utilisateur['dateDepart']}}</strong></p>
                                             <p href="#" data-abc="true">status: <strong> {{$utilisateur['status']}}</strong></p>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star" style="color: rgb(239, 239, 14)"></i>
+                                            <i class="fa fa-star" style="color: rgb(239, 239, 14)"></i>
+                                            <i class="fa fa-star" style="color: rgb(239, 239, 14)"></i>
+                                            <i class="fa fa-star" style="color: rgb(239, 239, 14)"></i>
+                                            <i class="fa fa-star" style="color: rgb(239, 239, 14)"></i>
                                             @foreach($ratings as $rating)
                                             <span>{{$rating->moyenne_etoiles}}</span>
                                             @endforeach
@@ -292,11 +292,11 @@
                                            <p href="#" data-abc="true">type voiture : <strong> {{$ratingUtilisateur->typeVoiture}}</strong></p>
                                            <p href="#" data-abc="true">date de depart: <strong> {{$ratingUtilisateur->dateDepart}}</strong></p>
                                            <p href="#" data-abc="true">status: <strong> {{$ratingUtilisateur->status}}</strong></p>
-                                           <i class="fa fa-star"></i>
-                                           <i class="fa fa-star"></i>
-                                           <i class="fa fa-star"></i>
-                                           <i class="fa fa-star"></i>
-                                           <i class="fa fa-star"></i>
+                                           <i class="fa fa-star" style="color: rgb(239, 239, 14)"></i>
+                                           <i class="fa fa-star" style="color: rgb(239, 239, 14)"></i>
+                                           <i class="fa fa-star" style="color: rgb(239, 239, 14)"></i>
+                                           <i class="fa fa-star" style="color: rgb(239, 239, 14)"></i>
+                                           <i class="fa fa-star" style="color: rgb(239, 239, 14)"></i>
                                           
                                            <span>{{$ratingUtilisateur->moyenne_etoiles}}</span>
                                           

@@ -99,13 +99,13 @@ Route::middleware(['auth', CheckRole::class . ':admin'])->group(function () {
     Route::get('dashboardAdmin', function () {
         return view('dashboardAdmin');
     })->name('dashboardAdmin');
-
+    
     Route::controller(AdminController::class)->prefix('adminPages')->group(function () {
         
         Route::put('edit/{id}', 'update')->name('adminProfile.update');
     });
 
-    
+    Route::get('dashboardAdmin', [AdminController::class, 'statistique'])->name('dashboardAdmin');
     Route::get('adminProfile', [AdminController::class, 'adminProfile'])->name('adminProfile');
     Route::get('adminPassagers', [AdminController::class, 'adminPassagers'])->name('adminPassagers');
     Route::get('adminChauffeurs', [AdminController::class, 'adminChauffeurs'])->name('adminChauffeurs');

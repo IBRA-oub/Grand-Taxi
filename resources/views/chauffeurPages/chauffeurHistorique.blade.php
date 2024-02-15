@@ -36,11 +36,11 @@
                                 <h3 class="mb-0 font-weight-semibold">612.99 <sup>DH</sup></h3>
                               
                                 
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star" style="color: rgb(239, 239, 14)"></i>
+                                <i class="fa fa-star" style="color: rgb(239, 239, 14)"></i>
+                                <i class="fa fa-star" style="color: rgb(239, 239, 14)"></i>
+                                <i class="fa fa-star" style="color: rgb(239, 239, 14)"></i>
+                                <i class="fa fa-star" style="color: rgb(239, 239, 14)"></i>
 
                                 
 
