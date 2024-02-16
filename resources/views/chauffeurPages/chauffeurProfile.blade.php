@@ -10,7 +10,11 @@
         <i class="fas fa-duotone fa-star" style="color: rgb(239, 239, 14)"></i>
         <i class="fas fa-duotone fa-star" style="color: rgb(239, 239, 14)"></i>
 
+        @if(isset($ratingChauffeur))
         <span class=" badge-counter" style="color: black"> {{$ratingChauffeur->moyenne_etoiles}}</span>
+        @else
+        <span class=" badge-counter" style="color: black"> 0</span>
+        @endif
     </h1>
     <hr />
     @if(Session::has('success'))

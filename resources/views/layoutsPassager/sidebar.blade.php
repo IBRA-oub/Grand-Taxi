@@ -15,7 +15,7 @@
     <li class="nav-item">
       <a class="nav-link" href="{{ route('dashboardPassager') }}">
         <i class="fas fa-fw fa-tachometer-alt"></i>
-        <span>Dashboard</span></a>
+        <span>Searsh</span></a>
     </li>
     
     <li class="nav-item">

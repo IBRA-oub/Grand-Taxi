@@ -60,6 +60,7 @@
             <span>Dashboard</span></a>
         </li>
         
+       
         <form action="{{route('searshVoiture.searsh')}}" method="GET">
             @csrf
           
@@ -76,7 +77,7 @@
           </div>
        </li>
     </form>
-
+    
    <form action="{{route('searshRating.searsh')}}" method="GET">
         @csrf
 
@@ -193,6 +194,7 @@
           </div>
           @if($utilisateurs->isNotEmpty())
           @foreach($utilisateurs as $utilisateur)
+         
           <div class=" mt-50 mb-50 "  style="min-width: 1400px;">
             
             <div class="row">
@@ -221,14 +223,17 @@
                                             <p href="#" data-abc="true">type voiture : <strong> {{$utilisateur['typeVoiture']}}</strong></p>
                                             <p href="#" data-abc="true">date de depart: <strong> {{$utilisateur['dateDepart']}}</strong></p>
                                             <p href="#" data-abc="true">status: <strong> {{$utilisateur['status']}}</strong></p>
+                                            
                                             <i class="fa fa-star" style="color: rgb(239, 239, 14)"></i>
                                             <i class="fa fa-star" style="color: rgb(239, 239, 14)"></i>
                                             <i class="fa fa-star" style="color: rgb(239, 239, 14)"></i>
                                             <i class="fa fa-star" style="color: rgb(239, 239, 14)"></i>
                                             <i class="fa fa-star" style="color: rgb(239, 239, 14)"></i>
-                                            @foreach($ratings as $rating)
-                                            <span>{{$rating->moyenne_etoiles}}</span>
-                                            @endforeach
+                                            
+                                           
+                                          
+                                            
+                                            
                                         </h6>
         
                                         

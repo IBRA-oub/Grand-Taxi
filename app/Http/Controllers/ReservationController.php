@@ -17,6 +17,7 @@ class ReservationController extends Controller
     {
         $reservations = DB::table('users')
         ->join('reservations', 'users.id', '=', 'reservations.chauffeur_id')
+        ->where('reservations.softdelete','0')
         ->get();
 
         
@@ -36,7 +37,8 @@ class ReservationController extends Controller
         
         $reservations = DB::table('users')
         ->join('reservations', 'users.id', '=', 'reservations.passager_id')
-        ->where('reservations.chauffeur_id', $chauffeurId) 
+        ->where('reservations.chauffeur_id', $chauffeurId)
+        ->where('reservations.softdelete','0')
         ->get();
 
        

@@ -130,16 +130,13 @@ class PassagerController extends Controller
         ->where('arrive', $arrive)
         ->where('dateDepart', $date)
         ->where('status','disponible')
+        ->where('softdelete','0')
         ->get();
 
-        $ratings = DB::table('users')
-        ->join('reservations', 'users.id', '=', 'reservations.chauffeur_id')
-        ->select(DB::raw('ROUND(AVG(rating), 1) as moyenne_etoiles'))
-        ->groupBy('users.id')
-        ->get();
+       
         
 
-        return view('passagerPages/passagerSearsh', ['utilisateurs'=> $utilisateurs , 'ratings'=> $ratings]);
+        return view('passagerPages/passagerSearsh', ['utilisateurs'=> $utilisateurs]);
     }
 
     public function searchRapide(Request $request){
@@ -149,6 +146,7 @@ class PassagerController extends Controller
         $utilisateurs = User::where('depart', $depart)
         ->where('arrive', $arrive)
         ->where('status','disponible')
+        ->where('softdelete','0')
         ->get();
 
         $ratings = DB::table('users')
@@ -163,9 +161,10 @@ class PassagerController extends Controller
     public function searchVoiture(Request $request){
         $typeVoiture= $request->input('voitureSearsh');
        
-
+      
 
         $utilisateurs = User::where('typeVoiture', 'LIKE' , '%' .$typeVoiture. '%')
+        ->where('softdelete','0')
         ->where('status','disponible')
         ->get();
 
@@ -189,8 +188,10 @@ class PassagerController extends Controller
                 ->select('users.*', DB::raw('ROUND(AVG(reservations.rating), 1) as moyenne_etoiles'))
                 ->where('reservations.rating', 'LIKE' ,'%'.$rating. '%')
                 ->where('users.status', 'disponible')
+                ->where('users.softdelete','0')
                 ->groupBy('users.id', 'users.name', 'users.status','users.email','users.password','users.picture','users.phone','users.description','users.password','users.matricule','users.typeVoiture','users.depart','users.arrive','users.softdelete','users.dateDepart','users.role','users.typePayement','users.remember_token','users.created_at','users.updated_at')
                 ->get();
+
         
             
         
