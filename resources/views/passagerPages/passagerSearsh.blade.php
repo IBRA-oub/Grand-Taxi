@@ -231,7 +231,11 @@
                                             <i class="fa fa-star" style="color: rgb(239, 239, 14)"></i>
                                             
                                            
-                                          
+                                            @if(isset($ratings[$utilisateur->id]))
+                                                <span>{{ $ratings[$utilisateur->id] }}</span>
+                                            @else
+                                                <span>0</span> <!-- Ou tout autre valeur par défaut -->
+                                            @endif
                                             
                                             
                                         </h6>

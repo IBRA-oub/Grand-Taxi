@@ -133,10 +133,17 @@ class PassagerController extends Controller
         ->where('softdelete','0')
         ->get();
 
-       
+        $ratings = [];
+        foreach ($utilisateurs as $utilisateur) {
+            $rating = DB::table('reservations')
+                ->where('chauffeur_id', $utilisateur->id)
+                ->avg('rating');
+            
+            $ratings[$utilisateur->id] = round($rating, 1);
+        }
         
 
-        return view('passagerPages/passagerSearsh', ['utilisateurs'=> $utilisateurs]);
+        return view('passagerPages/passagerSearsh', ['utilisateurs'=> $utilisateurs , 'ratings'=> $ratings]);
     }
 
     public function searchRapide(Request $request){
@@ -161,7 +168,7 @@ class PassagerController extends Controller
     public function searchVoiture(Request $request){
         $typeVoiture= $request->input('voitureSearsh');
        
-      
+       
 
         $utilisateurs = User::where('typeVoiture', 'LIKE' , '%' .$typeVoiture. '%')
         ->where('softdelete','0')
