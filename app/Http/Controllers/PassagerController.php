@@ -117,10 +117,10 @@ class PassagerController extends Controller
         return view('passagerPages/passagerRating', ['id' => $id]);
      }
 
-     public function passagerSearsh(){
+    //  public function passagerSearsh(){
         
-        return view('passagerPages/passagerSearsh');
-     }
+    //     return view('passagerPages/passagerSearsh');
+    //  }
 
      public function search(Request $request){
         $depart= $request->input('depart');
@@ -199,11 +199,10 @@ class PassagerController extends Controller
                 ->groupBy('users.id', 'users.name', 'users.status','users.email','users.password','users.picture','users.phone','users.description','users.password','users.matricule','users.typeVoiture','users.depart','users.arrive','users.softdelete','users.dateDepart','users.role','users.typePayement','users.remember_token','users.created_at','users.updated_at')
                 ->get();
 
-        
             
-        
+        dd($ratingUtilisateurs);
             $utilisateurs = collect([]);
 
-          return view('passagerPages/passagerSearsh', ['ratingUtilisateurs'=> $ratingUtilisateurs , 'utilisateurs'=> $utilisateurs]);
+        //   return view('passagerPages/passagerSearsh', ['ratingUtilisateurs'=> $ratingUtilisateurs , 'utilisateurs'=> $utilisateurs]);
     }
 }

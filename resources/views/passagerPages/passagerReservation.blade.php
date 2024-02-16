@@ -55,6 +55,22 @@
                                <span>&emsp; &emsp; </span> 
                                </span> <a href="{{route('passagerRating',$reservation->id)}}"> <i class="fas fa-solid fa-check fa-2xl" style="color: #63E6BE;"></i></a></span>
                             </form>
+
+                            <div>&emsp; </div>
+                            @php
+                                $dateDepart = new DateTime($reservation->dateDepart);
+                                $dateActuelle = new DateTime();
+                                $difference = $dateActuelle->diff($dateDepart);
+                                $restePlusUnJour = $difference->days > 1;
+                            @endphp
+                            <!-- Affichage du bouton d'annulation de réservation s'il reste plus d'un jour avant la réservation -->
+                            @if($restePlusUnJour)
+                                <form method="POST" action="">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-warning">Annuler la réservation</button>
+                                </form>
+                            @endif
                             </div>
                         </div>
                     </div>    
