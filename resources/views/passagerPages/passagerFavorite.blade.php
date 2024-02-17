@@ -11,12 +11,12 @@
 @endif
 
 @foreach($favoriteShow as $favshow)
-<div class=" mt-50 mb-50 "  style="min-width: 1400px;">
+<div class=" mt-50 mb-50 "  >
     <form action="{{route('reservationRapide.searsh')}}" method="GET" class="row g-3 align-items-center search-bar border rounded shadow p-3">
       @csrf
       <input type="hidden" name="depart" value="{{ $favshow->depart}}">
       <input type="hidden" name="arrive" value="{{ $favshow->arrive}}">
-    <div class="row">
+    <div class="row" style="width:120%">
        <div class="col-md-10">
 
                 <div class="card card-body mt-3 shadow">

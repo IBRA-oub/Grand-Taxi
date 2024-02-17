@@ -7,10 +7,10 @@
 
 
     @foreach($reservations as $reservation)
-<div class=" mt-50 mb-50 "  style="min-width: 1400px;">
+<div class=" mt-50 mb-50 "  >
        
     
-    <div class="row">
+    <div class="row" style="width:120%">
        <div class="col-md-10">
 
                 <div class="card card-body mt-3 shadow">

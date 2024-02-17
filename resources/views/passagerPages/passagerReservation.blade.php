@@ -14,10 +14,10 @@
 @foreach($reservations as $reservation)
 
 
-<div class=" mt-50 mb-50 "  style="min-width: 1400px;">
+<div class="mt-50 mb-50 "  >
             
-    <div class="row">
-       <div class="col-md-10">
+    <div class="row" style="width:120%">
+       <div class="col-md-10" >
 
                 <div class="card card-body mt-3 shadow">
                         <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row">
@@ -27,7 +27,7 @@
                                
                             </div>
 
-                            <div class="media-body ">
+                            <div class="media-body">
                                 <h6 class="media-title font-weight-semibold">
                                             <p href="#" data-abc="true">Name : <strong>{{$reservation->name}}</strong></p>
                                             <p href="#" data-abc="true">type voiture : <strong> {{$reservation->typeVoiture}}</strong></p>
@@ -39,7 +39,7 @@
 
                             <div class="border-end border-1" style="height: 160px;"></div>
 
-                            <div class="mt-3 mt-lg-0 ml-lg-3 text-center" style=" width: 250px">
+                            <div class="mt-3 mt-lg-0 ml-lg-3 text-center" style=" width: 250px; @media (max-width: 767px) { width: auto; margin-top: 6px; }">
 
                                 <h3 class="mb-0 font-weight-semibold">612.99 <sup>DH</sup></h3>
                               
@@ -47,30 +47,32 @@
                                 <div>&emsp; </div>
                                 <div>&emsp; </div>
                                 <div>&emsp; </div>
-                                <form method="POST" action="{{ route('favorite.update', $reservation->id) }}" >
+                                <form method="POST" action="{{ route('favorite.update', $reservation->id) }}" style="@media (max-width: 767px) { margin-top: 10px; }">
                                     @csrf
                                     @method('PUT')
-                               <span><button type="submit" style=" color: #f57878; border: none; background-color: white;"><i class="fas fa-duotone fa-heart fa-2xl" ></i></button></span>
+                                    <span><button type="submit" style=" color: #f57878; border: none; background-color: white;"><i class="fas fa-duotone fa-heart fa-2xl" ></i></button></span>
                                  
-                               <span>&emsp; &emsp; </span> 
-                               </span> <a href="{{route('passagerRating',$reservation->id)}}"> <i class="fas fa-solid fa-check fa-2xl" style="color: #63E6BE;"></i></a></span>
-                            </form>
-
-                            <div>&emsp; </div>
-                            @php
-                                $dateDepart = new DateTime($reservation->dateDepart);
-                                $dateActuelle = new DateTime();
-                                $difference = $dateActuelle->diff($dateDepart);
-                                $restePlusUnJour = $difference->days > 1;
-                            @endphp
-                            <!-- Affichage du bouton d'annulation de réservation s'il reste plus d'un jour avant la réservation -->
-                            @if($restePlusUnJour)
-                                <form method="POST" action="{{route('deleteReservation',$reservation->id)}}">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-warning">Annuler la réservation</button>
+                                    <span>&emsp; &emsp; </span> 
+                                    <span> 
+                                        <a href="{{route('passagerRating',$reservation->id)}}"> <i class="fas fa-solid fa-check fa-2xl" style="color: #63E6BE;"></i></a>
+                                    </span>
                                 </form>
-                            @endif
+
+                                <div>&emsp; </div>
+                                @php
+                                    $dateDepart = new DateTime($reservation->dateDepart);
+                                    $dateActuelle = new DateTime();
+                                    $difference = $dateActuelle->diff($dateDepart);
+                                    $restePlusUnJour = $difference->days > 1;
+                                @endphp
+                                <!-- Affichage du bouton d'annulation de réservation s'il reste plus d'un jour avant la réservation -->
+                                @if($restePlusUnJour)
+                                    <form method="POST" action="{{route('deleteReservation',$reservation->id)}}" style="@media (max-width: 767px) { margin-top: 10px; }">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-warning">Annuler la réservation</button>
+                                    </form>
+                                @endif
                             </div>
                         </div>
                     </div>    

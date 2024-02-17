@@ -195,9 +195,9 @@
           @if($utilisateurs->isNotEmpty())
           @foreach($utilisateurs as $utilisateur)
          
-          <div class=" mt-50 mb-50 "  style="min-width: 1400px;">
+          <div class=" mt-50 mb-50 "  >
             
-            <div class="row">
+            <div class="row" style="width:120%">
                <div class="col-md-10">
                 <form action="{{route('reservation.create')}}" method="POST">
                     @csrf
