@@ -73,6 +73,7 @@ Route::middleware(['auth', CheckRole::class . ':passager'])->group(function () {
         Route::get('/searchR',  'searchRapide')->name('reservationRapide.searsh');
         Route::get('/searchVoiture',  'searchVoiture')->name('searshVoiture.searsh');
         Route::get('/searchRating',  'searchRating')->name('searshRating.searsh');
+        Route::delete('cancel/{id}',  'destroyReservation')->name('deleteReservation');
     
     });
 

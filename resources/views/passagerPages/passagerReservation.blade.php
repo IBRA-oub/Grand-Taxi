@@ -65,7 +65,7 @@
                             @endphp
                             <!-- Affichage du bouton d'annulation de réservation s'il reste plus d'un jour avant la réservation -->
                             @if($restePlusUnJour)
-                                <form method="POST" action="">
+                                <form method="POST" action="{{route('deleteReservation',$reservation->id)}}">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-warning">Annuler la réservation</button>

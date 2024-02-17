@@ -200,9 +200,15 @@ class PassagerController extends Controller
                 ->get();
 
             
-        dd($ratingUtilisateurs);
+       
             $utilisateurs = collect([]);
 
-        //   return view('passagerPages/passagerSearsh', ['ratingUtilisateurs'=> $ratingUtilisateurs , 'utilisateurs'=> $utilisateurs]);
+         return view('passagerPages/passagerSearsh', ['ratingUtilisateurs'=> $ratingUtilisateurs , 'utilisateurs'=> $utilisateurs]);
+    }
+
+    public function destroyReservation($id){
+        $deleteReservation = Reservation::findOrFail($id);
+        $deleteReservation->delete();
+        return redirect()->route('passagerReservation')->with('success','reservation cancel  successfuly');
     }
 }
