@@ -4,6 +4,8 @@
 
 @section('contents')
 
+
+
 <div class="container mt-5">
     <form action="{{route('reservation.searsh')}}" method="GET" class="row g-3 align-items-center search-bar border rounded shadow p-3">
         <div class="col">
@@ -16,7 +18,7 @@
         </div>
         <div class="col">
             <label for="date" class="form-label" style="color: black;">Date</label>
-            <input type="date" name="date" class="form-control" id="date">
+            <input min="{{ now()->timezone('Africa/Casablanca')->format('Y-m-d') }}" max="{{ now()->timezone('Africa/Casablanca')->addMonth()->format('Y-m-d') }}" type="date" name="date" class="form-control" id="date">
         </div>
         
             <button type="submit" class="rounded font-semibold border-2 border-white shadow flex items-center gap-2 h-full px-6 rounded-full bg-primary text-lg text-white">
@@ -30,7 +32,6 @@
         
     </form>
 </div>
-
 
     
 @endsection

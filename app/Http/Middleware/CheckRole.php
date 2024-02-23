@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\Middleware;
 
-class CheckRole //extends Middleware
+class CheckRole 
 {
     public function handle(Request $request, Closure $next, ...$roles)
     {

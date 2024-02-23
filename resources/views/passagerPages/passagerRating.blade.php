@@ -28,6 +28,9 @@
                     <div class="col-md-6">
                         <label class="labels" style="color:black;">Rating</label>
                         <input type="number" name="rating" class="form-control" placeholder="number betwen 1 and 5">
+
+                        <label class="labels" style="color:black;">commentaire</label>
+                        <input type="text" name="commentaire" class="form-control" placeholder="éecrit votre commentaire">
                     </div>
                    
                 </div>

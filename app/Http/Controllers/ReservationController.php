@@ -141,6 +141,7 @@ class ReservationController extends Controller
         $ratingUpdate = reservation::findOrFail($id);
 
         $ratingUpdate->rating = $request->input('rating');
+        $ratingUpdate->commentaire = $request->input('commentaire');
         $ratingUpdate->historique = '1';
         
         $ratingUpdate->save();

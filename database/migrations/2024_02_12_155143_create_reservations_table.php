@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('historique');
             $table->string('favorite');
             $table->integer('rating')->nullable();
+            $table->string('commentaire')->nullable();
             $table->foreignId('chauffeur_id')
             ->constrained('users')
             ->onDelete('cascade')

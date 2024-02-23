@@ -4,6 +4,7 @@
 
 @section('contents')
 
+
 <!-- Page Wrapper -->
 <div id="wrapper">
 
@@ -119,5 +120,6 @@
 
 </div>
 <!-- End of Page Wrapper -->
+
     
 @endsection

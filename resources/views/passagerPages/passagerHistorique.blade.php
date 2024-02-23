@@ -46,6 +46,10 @@
                                 
 
                                 <span>  {{$histShow->rating}}</span>
+                                <div>
+                                    <p style="font-weight: bold">impression:</p>
+                                <p> {{$histShow->commentaire}} </p>
+                                </div>
                                 <p  class="btn btn-success mt-4 text-white"><i class="icon-cart-add mr-2"></i>merci pour votre confiance</p>
 
                             </div>

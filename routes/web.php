@@ -56,7 +56,6 @@ Route::middleware(['auth', CheckRole::class . ':chauffeur'])->group(function () 
     Route::get('chauffeurReservation', [ReservationController::class, 'indexChauffeur'])->name('chauffeurReservation');
     Route::get('chauffeurHistorique', [ReservationController::class, 'historiqueChauffeur'])->name('chauffeurHistorique');
 
-    // Route::get('chauffeurProfile', [ChauffeurController::class, 'chauffeurProfile'])->name('chauffeurProfile');
 
 });
 
@@ -79,7 +78,6 @@ Route::middleware(['auth', CheckRole::class . ':passager'])->group(function () {
 
     Route::get('passagerProfile', [PassagerController::class, 'passagerProfile'])->name('passagerProfile');
     Route::get('passagerRating/{id}', [PassagerController::class, 'passagerRating'])->name('passagerRating');
-    // Route::get('passagerSearsh', [PassagerController::class, 'search'])->name('passagerSearsh');
 
     Route::get('passagerHistorique', [ReservationController::class, 'historiqueShow'])->name('passagerHistorique');
     Route::get('passagerFavorite', [ReservationController::class, 'favoriteShow'])->name('passagerFavorite');
@@ -105,7 +103,7 @@ Route::middleware(['auth', CheckRole::class . ':admin'])->group(function () {
         
         Route::put('edit/{id}', 'update')->name('adminProfile.update');
     });
-
+    
     Route::get('dashboardAdmin', [AdminController::class, 'statistique'])->name('dashboardAdmin');
 
     Route::get('adminChauffeurs', [AdminController::class, 'showChauffeur'])->name('adminChauffeurs');

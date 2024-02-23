@@ -41,10 +41,7 @@ return [
             'provider' => 'users',
         ],
 
-        'passager' => [
-            'driver' => 'session',
-            'provider' => 'passagers',
-        ],
+       
     ],
 
     /*
@@ -70,10 +67,7 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        'passagers' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Passager::class,
-        ],
+        
 
         // 'users' => [
         //     'driver' => 'database',
