@@ -41,7 +41,7 @@
 
                             <div class="mt-3 mt-lg-0 ml-lg-3 text-center" style=" width: 250px; @media (max-width: 767px) { width: auto; margin-top: 6px; }">
 
-                                <h3 class="mb-0 font-weight-semibold">612.99 <sup>DH</sup></h3>
+                                <h3 class="mb-0 font-weight-semibold">99 <sup>DH</sup></h3>
                               
                                 <div>&emsp; </div>
                                 <div>&emsp; </div>
@@ -63,7 +63,7 @@
                                     $dateDepart = new DateTime($reservation->dateDepart);
                                     $dateActuelle = new DateTime();
                                     $difference = $dateActuelle->diff($dateDepart);
-                                    $restePlusUnJour = $difference->days > 1;
+                                    $restePlusUnJour = $difference->days < 1;
                                 @endphp
                                 <!-- Affichage du bouton d'annulation de réservation s'il reste plus d'un jour avant la réservation -->
                                 @if($restePlusUnJour)

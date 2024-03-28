@@ -39,6 +39,7 @@ class ReservationController extends Controller
         ->join('reservations', 'users.id', '=', 'reservations.passager_id')
         ->where('reservations.chauffeur_id', $chauffeurId)
         ->where('reservations.softdelete','0')
+        ->where('reservations.historique','0')
         ->get();
 
        

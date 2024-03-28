@@ -33,7 +33,7 @@
                             <div class="border-end border-1" style="height: 160px;"></div>
 
                             <div class="mt-3 mt-lg-0 ml-lg-3 text-center" style=" width: 250px">
-                                <h3 class="mb-0 font-weight-semibold">612.99 <sup>DH</sup></h3>
+                                <h3 class="mb-0 font-weight-semibold">99 <sup>DH</sup></h3>
                               
                                 
                                 <i class="fa fa-star" style="color: rgb(239, 239, 14)"></i>
